@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dfe4wu4a313xn"]
+
+[ext_resource type="Script" uid="uid://caneryoyw4m0p" path="res://scripts/timer_display.gd" id="1_l1jvn"]
+
+[node name="MainTimer" type="Node2D" unique_id=81778749 node_paths=PackedStringArray("label")]
+script = ExtResource("1_l1jvn")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=1446492233]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2

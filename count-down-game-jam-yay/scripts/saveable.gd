@@ -2,13 +2,18 @@ class_name Player
 
 extends Node
 
-static var time : int
+static var realtime : bool
+
+static func _set_realtime(value : bool) -> void:
+	realtime = value
+
+static var time : int = 1000
 
 static func _set_time(amt : int) -> void:
 	time = amt
 
 static func _consume_time(amt : int) -> void:
-	_set_time(min(0, _get_time() - amt))
+	_set_time(max(0, _get_time() - amt))
 
 static func _get_time() -> int:
 	return time

@@ -1,10 +1,31 @@
 [gd_scene format=3 uid="uid://cj2nk4lhl1vcv"]
 
 [ext_resource type="PackedScene" uid="uid://cb0j63w2m0ea" path="res://icons/basic_room_arrow.tscn" id="1_avgtg"]
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_bcx0p"]
 
 [node name="TestRoomRight" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_bcx0p")]
+position = Vector2(576, 50)
+lock_to_top_center = true
 
 [node name="BasicRoomArrow" parent="." unique_id=626279613 instance=ExtResource("1_avgtg")]
 position = Vector2(96, 501)
 rotation = 3.1415927
 Scene = "res://rooms/testing/test_room_left.tscn"
+label_y_mod = 5.0
+
+[node name="Label" type="Label" parent="." unique_id=446973956]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 309.99997
+offset_top = 269.99997
+offset_right = 417.99997
+offset_bottom = 292.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "right room??????"
