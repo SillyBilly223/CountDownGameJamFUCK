@@ -1,11 +1,66 @@
+class_name Player
+
 extends Node
 
+static var time : int
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+static func _set_time(amt : int) -> void:
+	time = amt
+
+static func _consume_time(amt : int) -> void:
+	_set_time(min(0, _get_time() - amt))
+
+static func _get_time() -> int:
+	return time
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+# INVENTORY STUFF
+
+static var inv_size : int
+
+static var inv_id : Array[int]
+static var inv_names : Array[String]
+static var inv_icon : Array[Texture2D]
+
+
+static func _set_inv_item(index : int, item : String, icon : Texture2D, id : int = 0) -> void:
+	if !inv_id:
+		_reset_inv()
+	if index >= inv_size:
+		return
+	
+	inv_id[index] = id
+	inv_names[index] = item
+	inv_icon[index] = icon
+
+static func _del_item(index : int) -> void:
+	if !inv_id or index >= inv_size:
+		return
+	
+	inv_id[index] = -1
+	inv_names[index] = ""
+	inv_icon[index] = null
+
+static func _get_item(index : int) -> Dictionary:
+	if !inv_id or index >= inv_size or !inv_names[index]:
+		return {"id":-1, "item":"", "icon":null}
+	
+	var item = {"id": inv_id[index], "item":inv_names[index], "icon":inv_icon[index]}
+	return item
+
+static func _pop_item(index : int) -> Dictionary:
+	var item = _get_item(index)
+	_del_item(index)
+	return item
+
+static func _reset_inv() -> void:
+	inv_id = []
+	inv_id.resize(inv_size)
+	inv_id.fill(-1)
+	
+	inv_names = []
+	inv_names.resize(inv_size)
+	
+	inv_icon = []
+	inv_icon.resize(inv_size)

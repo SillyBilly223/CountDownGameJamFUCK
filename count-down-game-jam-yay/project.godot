@@ -14,6 +14,10 @@ config/name="CountDownGameJamYAY"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Saveable="*uid://b8jktoprxcq7y"
+
 [display]
 
 window/stretch/mode="canvas_items"
