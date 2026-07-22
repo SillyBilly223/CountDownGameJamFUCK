@@ -1,16 +1,40 @@
 [gd_scene format=3 uid="uid://dfe4wu4a313xn"]
 
 [ext_resource type="Script" uid="uid://caneryoyw4m0p" path="res://scripts/timer_display.gd" id="1_l1jvn"]
+[ext_resource type="FontFile" uid="uid://dktx2r442exlt" path="res://fonts/SWORD.TTF" id="2_3hngp"]
+[ext_resource type="Texture2D" uid="uid://le5thh44c1ol" path="res://icons/IMG_8944.png" id="2_p7jhf"]
 
-[node name="MainTimer" type="Node2D" unique_id=81778749 node_paths=PackedStringArray("label")]
+[node name="MainTimer" type="Node2D" unique_id=81778749 node_paths=PackedStringArray("minutes", "seconds")]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_l1jvn")
-label = NodePath("Label")
+minutes = NodePath("minutes")
+seconds = NodePath("seconds")
 
-[node name="Label" type="Label" parent="." unique_id=1446492233]
+[node name="minutes" type="Label" parent="." unique_id=1446492233]
+z_index = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -381.0
+offset_top = -161.0
+offset_right = -13.0
+offset_bottom = 184.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.043137256, 0.24313726, 0.22352941, 1)
+theme_override_fonts/font = ExtResource("2_3hngp")
+theme_override_font_sizes/font_size = 368
+text = "88"
+
+[node name="seconds" type="Label" parent="." unique_id=1346527789]
+z_index = 1
+offset_left = 34.0
+offset_top = -163.0
+offset_right = 402.0
+offset_bottom = 182.0
+theme_override_colors/font_color = Color(0.043137256, 0.24705882, 0.22745098, 1)
+theme_override_fonts/font = ExtResource("2_3hngp")
+theme_override_font_sizes/font_size = 368
+text = "88"
+
+[node name="img" type="Sprite2D" parent="." unique_id=805549142]
+texture = ExtResource("2_p7jhf")

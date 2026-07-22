@@ -34,6 +34,9 @@ func _mouse_exit() -> void:
 	if shape: shape.modulate = default_color
 
 func _input(event : InputEvent) -> void:
+	if !visible:
+		return
+	
 	if mouse_over and event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		_perform_action()
 

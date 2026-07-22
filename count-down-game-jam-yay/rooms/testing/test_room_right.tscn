@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cj2nk4lhl1vcv"]
 
-[ext_resource type="PackedScene" uid="uid://cb0j63w2m0ea" path="res://icons/basic_room_arrow.tscn" id="1_avgtg"]
 [ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_bcx0p"]
+[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_8a4yp"]
 [ext_resource type="FontFile" uid="uid://7y76ap1rdvhf" path="res://fonts/AZU1.TTF" id="3_s3hhf"]
 
 [node name="TestRoomRight" type="Node2D" unique_id=1544991076]
@@ -10,11 +10,9 @@
 position = Vector2(576, 50)
 lock_to_top_center = true
 
-[node name="BasicRoomArrow" parent="." unique_id=626279613 instance=ExtResource("1_avgtg")]
-position = Vector2(96, 501)
-rotation = 3.1415927
+[node name="LeftRoomArrow" parent="." unique_id=193788157 instance=ExtResource("3_8a4yp")]
+position = Vector2(96, 520)
 Scene = "res://rooms/testing/test_room_left.tscn"
-label_y_mod = 5.0
 
 [node name="Label" type="Label" parent="." unique_id=446973956]
 anchors_preset = 8

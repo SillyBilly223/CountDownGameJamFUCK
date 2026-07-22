@@ -13,7 +13,7 @@ static func _set_time(amt : int) -> void:
 	time = amt
 
 static func _consume_time(amt : int) -> void:
-	_set_time(max(0, _get_time() - amt))
+	_set_time(maxi(0, _get_time() - amt))
 
 static func _get_time() -> int:
 	return time
@@ -28,6 +28,7 @@ static var inv_id : Array[int]
 static var inv_names : Array[String]
 static var inv_icon : Array[Texture2D]
 
+static var inventory_display : Node2D
 
 static func _set_inv_item(index : int, item : String, icon : Texture2D, id : int = 0) -> void:
 	if !inv_id:
@@ -38,6 +39,7 @@ static func _set_inv_item(index : int, item : String, icon : Texture2D, id : int
 	inv_id[index] = id
 	inv_names[index] = item
 	inv_icon[index] = icon
+	_update_inv(index)
 
 static func _del_item(index : int) -> void:
 	if !inv_id or index >= inv_size:
@@ -46,6 +48,7 @@ static func _del_item(index : int) -> void:
 	inv_id[index] = -1
 	inv_names[index] = ""
 	inv_icon[index] = null
+	_update_inv(index)
 
 static func _get_item(index : int) -> Dictionary:
 	if !inv_id or index >= inv_size or !inv_names[index]:
@@ -69,8 +72,14 @@ static func _reset_inv() -> void:
 	
 	inv_icon = []
 	inv_icon.resize(inv_size)
+	
+	_update_inv(-1)
 
-
+static func _update_inv(index : int = -1) -> void:
+	if !inventory_display:
+		return
+	
+	pass
 
 #game values
 

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://vbienmdruppx"]
 
-[ext_resource type="PackedScene" uid="uid://cb0j63w2m0ea" path="res://icons/basic_room_arrow.tscn" id="1_2n52o"]
 [ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_qmcu5"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_qmcu5"]
 
 [node name="TestRoomLeft" type="Node2D" unique_id=1544991076]
 
 [node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_qmcu5")]
-position = Vector2(576, 50)
+position = Vector2(620, 111)
 lock_to_top_center = true
 
-[node name="BasicRoomArrow" parent="." unique_id=626279613 instance=ExtResource("1_2n52o")]
+[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_qmcu5")]
 position = Vector2(1039, 520)
 Scene = "res://rooms/testing/test_room_right.tscn"
 

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://ba37cdfuc5bvv"]
+
+[ext_resource type="Script" uid="uid://drar5wloo4320" path="res://scripts/room_button.gd" id="1_82qqt"]
+[ext_resource type="Texture2D" uid="uid://m54an378061v" path="res://icons/arrows/arow_right_active1.png" id="2_82qqt"]
+[ext_resource type="Texture2D" uid="uid://c3aoxuqkeows4" path="res://icons/arrows/arow_right_active2.png" id="3_byd6n"]
+[ext_resource type="Texture2D" uid="uid://bfo6uskngdgsl" path="res://icons/arrows/arow_right_active3.png" id="4_54qsh"]
+[ext_resource type="Script" uid="uid://biwh2cnyxu3mb" path="res://scripts/change_scene_button.gd" id="5_fv32h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_we68l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_82qqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_byd6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_54qsh")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_54qsh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv2lo"]
+size = Vector2(164, 82)
+
+[node name="RightRoomArrow" type="Area2D" unique_id=626279613 node_paths=PackedStringArray("sprite", "action", "cost_popup")]
+script = ExtResource("1_82qqt")
+sprite = NodePath("AnimatedSprite2D")
+action = NodePath("label_holder2/Label")
+cost_popup = NodePath("label_holder2")
+default_color = Color(1, 1, 1, 0.5058824)
+hovered_color = Color(1, 1, 1, 0.7372549)
+lock_label_pos = true
+label_y_mod = -3.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=446044318]
+position = Vector2(-47, -2)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_we68l")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1944738772]
+position = Vector2(3, -8)
+shape = SubResource("RectangleShape2D_hv2lo")
+
+[node name="label_holder2" type="Node2D" parent="." unique_id=846741852]
+position = Vector2(0, -3)
+
+[node name="Label" type="Label" parent="label_holder2" unique_id=958828297]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -18.0
+offset_right = 30.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.043137256, 0.24313726, 0.22352941, 1)
+text = "5 second cost"
+script = ExtResource("5_fv32h")
+cost = 5
+
+[node name="Label2" type="Label" parent="label_holder2" unique_id=1118345152]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -21.0
+offset_right = 27.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "5 second cost"
