@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cb0j63w2m0ea" path="res://icons/basic_room_arrow.tscn" id="1_avgtg"]
 [ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_bcx0p"]
+[ext_resource type="FontFile" uid="uid://7y76ap1rdvhf" path="res://fonts/AZU1.TTF" id="3_s3hhf"]
 
 [node name="TestRoomRight" type="Node2D" unique_id=1544991076]
 
@@ -21,11 +22,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 309.99997
-offset_top = 269.99997
-offset_right = 417.99997
-offset_bottom = 292.99997
+offset_left = 245.0
+offset_top = 272.0
+offset_right = 991.0
+offset_bottom = 362.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(5, 5)
+theme_override_fonts/font = ExtResource("3_s3hhf")
+theme_override_font_sizes/font_size = 100
 text = "right room??????"
