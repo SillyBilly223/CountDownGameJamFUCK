@@ -64,3 +64,25 @@ static func _reset_inv() -> void:
 	
 	inv_icon = []
 	inv_icon.resize(inv_size)
+
+
+
+#game values
+
+static var game_values : Dictionary
+
+## remember to check if null result.
+static func _get_game_value(id : String) -> Variant:
+	if !game_values:
+		_reset_values()
+	
+	return game_values.get(id)
+
+static func _set_game_value(id : String, value : Variant) -> void:
+	if !game_values:
+		_reset_values()
+	
+	game_values.set(id, value)
+
+static func _reset_values() -> void:
+	game_values = {}

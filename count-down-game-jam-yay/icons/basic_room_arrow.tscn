@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cb0j63w2m0ea"]
+
+[ext_resource type="Script" uid="uid://drar5wloo4320" path="res://scripts/room_button.gd" id="1_tmqvr"]
+[ext_resource type="Script" uid="uid://biwh2cnyxu3mb" path="res://scripts/change_scene_button.gd" id="2_6b81f"]
+[ext_resource type="Texture2D" uid="uid://buxb6lw47rhty" path="res://icons/testing/arow.png" id="3_6b81f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv2lo"]
+size = Vector2(164, 82)
+
+[node name="BasicRoomArrow" type="Area2D" unique_id=626279613 node_paths=PackedStringArray("action", "cost_popup", "shape")]
+script = ExtResource("1_tmqvr")
+action = NodePath("label_holder/Label")
+cost_popup = NodePath("label_holder")
+shape = NodePath("img")
+default_color = Color(1, 1, 1, 0.5058824)
+hovered_color = Color(1, 1, 1, 1)
+lock_label_pos = true
+label_y_mod = -5.0
+
+[node name="img" type="Sprite2D" parent="." unique_id=157215457]
+z_index = 1
+texture = ExtResource("3_6b81f")
+
+[node name="label_holder" type="Node2D" parent="." unique_id=609472312]
+position = Vector2(0, -5)
+
+[node name="Label" type="Label" parent="label_holder" unique_id=96373640]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -20.0
+offset_right = 28.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "5 second cost"
+script = ExtResource("2_6b81f")
+cost = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1944738772]
+position = Vector2(3, -8)
+shape = SubResource("RectangleShape2D_hv2lo")

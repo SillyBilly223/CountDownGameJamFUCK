@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://vbienmdruppx"]
+
+[ext_resource type="PackedScene" uid="uid://cb0j63w2m0ea" path="res://icons/basic_room_arrow.tscn" id="1_2n52o"]
+
+[node name="TestRoomLeft" type="Node2D" unique_id=1544991076]
+
+[node name="BasicRoomArrow" parent="." unique_id=626279613 instance=ExtResource("1_2n52o")]
+position = Vector2(1039, 520)
+Scene = "res://rooms/testing/test_room_right.tscn"

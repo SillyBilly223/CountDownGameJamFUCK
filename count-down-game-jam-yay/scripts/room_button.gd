@@ -1,0 +1,10 @@
+class_name RoomChangeButton
+
+extends GenericButton
+
+@export var Scene : String
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	super._ready()
+	action.Scene = Scene
