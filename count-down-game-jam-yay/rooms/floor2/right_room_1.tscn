@@ -16,14 +16,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 381.0
-offset_top = 214.00003
-offset_right = 489.0
-offset_bottom = 263.00003
+offset_left = 348.00003
+offset_top = 192.0
+offset_right = 456.00003
+offset_bottom = 241.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
-text = "right room 1"
+text = "completely
+dark room"
 
 [node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_mkrhp")]
 position = Vector2(141, 374)
@@ -38,3 +39,9 @@ position = Vector2(540.99994, 577.99994)
 rotation = 1.5791299
 scale = Vector2(0.51934946, 2.6809409)
 Scene = "res://rooms/floor2/right_hall.tscn"
+
+[node name="RightRoomArrow3" parent="." unique_id=1526111051 instance=ExtResource("3_y26y6")]
+position = Vector2(571, 483)
+rotation = -1.5444713
+scale = Vector2(0.40201584, 1.7258416)
+Scene = "res://rooms/vents/vents.tscn"

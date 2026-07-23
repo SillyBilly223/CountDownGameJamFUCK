@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cwisar002dox1"]
+
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_un4x8"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_gpg52"]
+[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_gpg52"]
+
+[node name="MainRoom" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_un4x8")]
+position = Vector2(620, 111)
+lock_to_top_center = true
+
+[node name="LeftRoomArrow5" parent="." unique_id=805106808 instance=ExtResource("2_gpg52")]
+position = Vector2(583.99994, 590)
+rotation = 1.5420411
+scale = Vector2(0.39943233, 2.7257166)
+Scene = "res://rooms/basement/storage_room.tscn"
+
+[node name="Label" type="Label" parent="." unique_id=1049603567]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 457.99997
+offset_top = 313.00003
+offset_right = 565.99994
+offset_bottom = 362.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "freezer"
+
+[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("3_gpg52")]
+position = Vector2(149, 299)
+Scene = "res://rooms/floor2/left_room_3.tscn"

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c481jk0hff0bm"]
+
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_38ysc"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_rekji"]
+
+[node name="MainRoom" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_38ysc")]
+position = Vector2(620, 111)
+lock_to_top_center = true
+
+[node name="LeftRoomArrow5" parent="." unique_id=805106808 instance=ExtResource("2_rekji")]
+position = Vector2(583.99994, 590)
+rotation = 1.5420411
+scale = Vector2(0.39943233, 2.7257166)
+Scene = "res://rooms/basement/storage_room.tscn"
+
+[node name="LeftRoomArrow2" parent="." unique_id=201403606 instance=ExtResource("2_rekji")]
+position = Vector2(610.9998, 293)
+rotation = -1.5636225
+Scene = "res://rooms/floor1/dining_room.tscn"
+
+[node name="Label" type="Label" parent="." unique_id=1049603567]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = 301.0
+offset_right = 247.99998
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "basement
+entrance"

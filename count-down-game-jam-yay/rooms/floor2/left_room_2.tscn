@@ -38,3 +38,9 @@ position = Vector2(540.99994, 577.99994)
 rotation = 1.5791299
 scale = Vector2(0.51934946, 2.6809409)
 Scene = "res://rooms/floor2/left_hall.tscn"
+
+[node name="RightRoomArrow3" parent="." unique_id=2093597969 instance=ExtResource("3_5cm21")]
+position = Vector2(571.99994, 438.99997)
+rotation = 4.718503
+scale = Vector2(0.31862068, 1.6012045)
+Scene = "res://rooms/floor2/art_gallery_1.tscn"

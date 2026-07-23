@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c2xsbmnwga1dm"]
+
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_4djkc"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="3_175wx"]
+
+[node name="MainRoom" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_4djkc")]
+position = Vector2(620, 111)
+lock_to_top_center = true
+
+[node name="Label" type="Label" parent="." unique_id=1049603567]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 328.00003
+offset_top = 260.0
+offset_right = 436.00003
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "observatory"
+
+[node name="RightRoomArrow2" parent="." unique_id=1938193100 instance=ExtResource("3_175wx")]
+position = Vector2(540.99994, 577.99994)
+rotation = 1.5791299
+scale = Vector2(0.51934946, 2.6809409)
+Scene = "res://rooms/floor3/floor_3_room.tscn"
+
+[node name="RightRoomArrow" parent="." unique_id=626279613 instance=ExtResource("3_175wx")]
+position = Vector2(1004, 444)
+Scene = "res://rooms/floor1/kitchen_bathroom.tscn"

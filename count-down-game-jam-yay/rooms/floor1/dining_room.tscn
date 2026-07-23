@@ -12,6 +12,7 @@ lock_to_top_center = true
 
 [node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_frekr")]
 position = Vector2(1039, 520)
+Scene = "res://rooms/basement/basement_entrance.tscn"
 
 [node name="LeftRoomArrow5" parent="." unique_id=805106808 instance=ExtResource("2_frekr")]
 position = Vector2(939, 309)

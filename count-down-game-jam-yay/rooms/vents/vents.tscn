@@ -12,9 +12,11 @@ lock_to_top_center = true
 
 [node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_kyop4")]
 position = Vector2(738, 560)
+Scene = "res://rooms/basement/storage_room.tscn"
 
 [node name="LeftRoomArrow2" parent="." unique_id=1319113180 instance=ExtResource("2_kyop4")]
 position = Vector2(989, 373)
+Scene = "res://rooms/floor3/floor_3_room.tscn"
 
 [node name="LeftRoomArrow5" parent="." unique_id=1219429238 instance=ExtResource("2_kyop4")]
 position = Vector2(818.99994, 194)
@@ -24,6 +26,7 @@ Scene = "res://rooms/floor1/backyard.tscn"
 [node name="LeftRoomArrow6" parent="." unique_id=1160833779 instance=ExtResource("2_kyop4")]
 position = Vector2(579.00006, 279)
 rotation = -4.734145
+Scene = "res://rooms/floor2/balcony.tscn"
 
 [node name="Label" type="Label" parent="." unique_id=1049603567]
 anchors_preset = 8
@@ -46,3 +49,4 @@ Scene = "res://rooms/floor1/kitchen.tscn"
 
 [node name="LeftRoomArrow4" parent="." unique_id=195931009 instance=ExtResource("3_mx73j")]
 position = Vector2(203, 243)
+Scene = "res://rooms/floor2/right_room_1.tscn"
