@@ -14,6 +14,8 @@ func _ready() -> void:
 		sprite.modulate = default_color
 
 func _mouse_enter() -> void:
+	if Player._get_game_value("busy"):
+		return
 	super._mouse_enter()
 	if sprite:
 		sprite.play("active")

@@ -16,7 +16,7 @@ script = ExtResource("1_2kbug")
 
 [node name="wires_handler" type="Node2D" parent="." unique_id=298892616 node_paths=PackedStringArray("manager", "label", "win_img", "lose_img", "starts", "ends")]
 script = ExtResource("2_jw54h")
-timer = 20000.0
+timer = 2000.0
 manager = NodePath("..")
 label = NodePath("timer")
 win_img = NodePath("Node2D")

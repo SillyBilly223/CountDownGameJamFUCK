@@ -29,7 +29,7 @@ func _perform() -> void:
 func _run_popup() -> void:
 	popup = popup_base.instantiate()
 	popup.action = self
-	add_child(popup)
+	get_tree().root.add_child(popup)
 
 func _on_complete(args : Variant) -> void:
 	popup.queue_free()
