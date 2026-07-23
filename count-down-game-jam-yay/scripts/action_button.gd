@@ -21,6 +21,8 @@ func _ready() -> void:
 	
 	if lock_label_pos and cost_popup:
 		cost_popup.global_rotation = 0.0
+		cost_popup.global_scale = Vector2(1.0, 1.0)
+		cost_popup.global_skew = 0
 		cost_popup.global_position = Vector2(self.global_position.x, self.global_position.y + label_y_mod)
 
 func _mouse_enter() -> void:

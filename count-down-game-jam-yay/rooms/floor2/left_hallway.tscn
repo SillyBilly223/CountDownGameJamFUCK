@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bnv8l25wso513"]
+
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_b1s6g"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_gy20i"]
+[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_i8h5f"]
+
+[node name="MainRoom" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_b1s6g")]
+position = Vector2(620, 111)
+lock_to_top_center = true
+
+[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_gy20i")]
+position = Vector2(1039, 520)
+Scene = "res://rooms/floor1/infinite_hallway.tscn"
+
+[node name="LeftRoomArrow2" parent="." unique_id=63514055 instance=ExtResource("2_gy20i")]
+position = Vector2(924, 364)
+Scene = "res://rooms/floor1/infinite_hallway.tscn"
+
+[node name="LeftRoomArrow5" parent="." unique_id=1027326641 instance=ExtResource("2_gy20i")]
+position = Vector2(812, 231)
+Scene = "res://rooms/floor1/infinite_hallway.tscn"
+
+[node name="Label" type="Label" parent="." unique_id=1049603567]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 309.99997
+offset_top = 269.99997
+offset_right = 417.99997
+offset_bottom = 292.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "right hall
+floor 2"
+
+[node name="LeftRoomArrow3" parent="." unique_id=776123765 instance=ExtResource("3_i8h5f")]
+position = Vector2(148, 564.99994)
+rotation = -0.6234449
+Scene = "res://rooms/floor1/main_room.tscn"

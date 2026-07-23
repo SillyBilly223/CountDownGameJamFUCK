@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c1hd7hwkyikpc"]
+
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_jbhe2"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_8su02"]
+[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_aiqkm"]
+
+[node name="KitchenRestroom" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_jbhe2")]
+position = Vector2(620, 111)
+lock_to_top_center = true
+
+[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_8su02")]
+position = Vector2(1039, 520)
+Scene = "res://rooms/floor1/kitchen.tscn"
+
+[node name="Label" type="Label" parent="." unique_id=1049603567]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 397.0
+offset_top = 246.0
+offset_right = 505.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "bathroom
+floor 1"
+
+[node name="Label2" type="Label" parent="." unique_id=899014403]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 36.00009
+offset_top = 135.0
+offset_right = 144.00009
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.24280903
+scale = Vector2(5, 5)
+text = "mirror.."
+
+[node name="LeftRoomArrow4" parent="." unique_id=13454611 instance=ExtResource("3_aiqkm")]
+position = Vector2(108, 125)
+rotation = 1.5589893

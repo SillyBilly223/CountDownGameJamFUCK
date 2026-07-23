@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c2avvkdl4qjh0"]
+
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_gkieb"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_4sw2e"]
+
+[node name="MainRoom" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_gkieb")]
+position = Vector2(620, 111)
+lock_to_top_center = true
+
+[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_4sw2e")]
+position = Vector2(1039, 520)
+Scene = "res://rooms/floor1/main_room.tscn"
+
+[node name="Label" type="Label" parent="." unique_id=1049603567]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 309.99997
+offset_top = 269.99997
+offset_right = 417.99997
+offset_bottom = 292.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "LIBRARY
+MAZE"

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cibibwb20kfri"]
+
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_3g8j0"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_kyop4"]
+[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_mx73j"]
+
+[node name="MainRoom" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_3g8j0")]
+position = Vector2(620, 111)
+lock_to_top_center = true
+
+[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_kyop4")]
+position = Vector2(738, 560)
+
+[node name="LeftRoomArrow2" parent="." unique_id=1319113180 instance=ExtResource("2_kyop4")]
+position = Vector2(989, 373)
+
+[node name="LeftRoomArrow5" parent="." unique_id=1219429238 instance=ExtResource("2_kyop4")]
+position = Vector2(818.99994, 194)
+rotation = -1.6032592
+Scene = "res://rooms/floor1/backyard.tscn"
+
+[node name="LeftRoomArrow6" parent="." unique_id=1160833779 instance=ExtResource("2_kyop4")]
+position = Vector2(579.00006, 279)
+rotation = -4.734145
+
+[node name="Label" type="Label" parent="." unique_id=1049603567]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 85.000015
+offset_top = 515.0
+offset_right = 193.00002
+offset_bottom = 538.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "vents"
+
+[node name="LeftRoomArrow3" parent="." unique_id=776123765 instance=ExtResource("3_mx73j")]
+position = Vector2(210, 466)
+Scene = "res://rooms/floor1/kitchen.tscn"
+
+[node name="LeftRoomArrow4" parent="." unique_id=195931009 instance=ExtResource("3_mx73j")]
+position = Vector2(203, 243)
