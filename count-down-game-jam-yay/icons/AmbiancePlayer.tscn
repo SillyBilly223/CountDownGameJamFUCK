@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8mggjbl5rcs6"]
+
+[ext_resource type="Script" uid="uid://47nt7kkovmp5" path="res://scripts/global_ambiance.gd" id="1_bx6tu"]
+
+[node name="AmbiancePlayer" type="AudioStreamPlayer" unique_id=1458109358]
+script = ExtResource("1_bx6tu")

@@ -53,7 +53,7 @@ animation = &"idle"
 [node name="label_holder" type="Node2D" parent="." unique_id=609472312]
 position = Vector2(0, -3)
 
-[node name="Label" type="Label" parent="label_holder" unique_id=96373640]
+[node name="Label" type="Label" parent="label_holder" unique_id=96373640 node_paths=PackedStringArray("additional_labels")]
 z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
@@ -71,6 +71,7 @@ theme_override_colors/font_color = Color(0.043137256, 0.24313726, 0.22352941, 1)
 text = "5 second cost"
 script = ExtResource("3_okqw8")
 cost = 5
+additional_labels = [NodePath("../Label2")]
 
 [node name="Label2" type="Label" parent="label_holder" unique_id=1705227413]
 z_index = 2

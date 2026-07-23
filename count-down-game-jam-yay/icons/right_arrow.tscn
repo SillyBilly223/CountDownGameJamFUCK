@@ -57,7 +57,7 @@ shape = SubResource("RectangleShape2D_hv2lo")
 [node name="label_holder2" type="Node2D" parent="." unique_id=846741852]
 position = Vector2(0, -3)
 
-[node name="Label" type="Label" parent="label_holder2" unique_id=958828297]
+[node name="Label" type="Label" parent="label_holder2" unique_id=958828297 node_paths=PackedStringArray("additional_labels")]
 z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,6 +75,7 @@ theme_override_colors/font_color = Color(0.043137256, 0.24313726, 0.22352941, 1)
 text = "5 second cost"
 script = ExtResource("5_fv32h")
 cost = 5
+additional_labels = [NodePath("../Label2")]
 
 [node name="Label2" type="Label" parent="label_holder2" unique_id=1118345152]
 z_index = 2

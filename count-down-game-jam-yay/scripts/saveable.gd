@@ -1,36 +1,64 @@
-class_name Player
+class_name PlayerData
 
 extends Node
 
-static var realtime : bool
+var realtime : bool
 
-static func _set_realtime(value : bool) -> void:
+func _set_realtime(value : bool) -> void:
 	realtime = value
 
-static var time : int = 1000
+var time : int = 1000
 
-static func _set_time(amt : int) -> void:
+func _set_time(amt : int) -> void:
 	time = amt
 
-static func _consume_time(amt : int) -> void:
+func _consume_time(amt : int) -> void:
 	_set_time(maxi(0, _get_time() - amt))
 
-static func _get_time() -> int:
+func _get_time() -> int:
 	return time
 
+
+# audio player
+var Audio : GlobalAudioPlayer
+
+func _get_audio() -> GlobalAudioPlayer:
+	if !Audio:
+		Audio = GlobalAudioPlayer.new()
+	return Audio
+
+var Music : GlobalMusicPlayer
+
+func _get_music() -> GlobalMusicPlayer:
+	if !Music:
+		Music = GlobalMusicPlayer.new()
+	return Music
+
+var Ambiance : GlobalAmbiancePlayer
+
+func _get_ambiance() -> GlobalAmbiancePlayer:
+	if !Ambiance:
+		Ambiance = GlobalAmbiancePlayer.new()
+	return Ambiance
+
+
+# process
+
+func _process(delta : float) -> void:
+	pass
 
 
 # INVENTORY STUFF
 
-static var inv_size : int
+var inv_size : int
 
-static var inv_id : Array[int]
-static var inv_names : Array[String]
-static var inv_icon : Array[Texture2D]
+var inv_id : Array[int]
+var inv_names : Array[String]
+var inv_icon : Array[Texture2D]
 
-static var inventory_display : Node2D
+var inventory_display : Node2D
 
-static func _set_inv_item(index : int, item : String, icon : Texture2D, id : int = 0) -> void:
+func _set_inv_item(index : int, item : String, icon : Texture2D, id : int = 0) -> void:
 	if !inv_id:
 		_reset_inv()
 	if index >= inv_size:
@@ -41,7 +69,7 @@ static func _set_inv_item(index : int, item : String, icon : Texture2D, id : int
 	inv_icon[index] = icon
 	_update_inv(index)
 
-static func _del_item(index : int) -> void:
+func _del_item(index : int) -> void:
 	if !inv_id or index >= inv_size:
 		return
 	
@@ -50,19 +78,19 @@ static func _del_item(index : int) -> void:
 	inv_icon[index] = null
 	_update_inv(index)
 
-static func _get_item(index : int) -> Dictionary:
+func _get_item(index : int) -> Dictionary:
 	if !inv_id or index >= inv_size or !inv_names[index]:
 		return {"id":-1, "item":"", "icon":null}
 	
 	var item = {"id": inv_id[index], "item":inv_names[index], "icon":inv_icon[index]}
 	return item
 
-static func _pop_item(index : int) -> Dictionary:
+func _pop_item(index : int) -> Dictionary:
 	var item = _get_item(index)
 	_del_item(index)
 	return item
 
-static func _reset_inv() -> void:
+func _reset_inv() -> void:
 	inv_id = []
 	inv_id.resize(inv_size)
 	inv_id.fill(-1)
@@ -75,7 +103,7 @@ static func _reset_inv() -> void:
 	
 	_update_inv(-1)
 
-static func _update_inv(index : int = -1) -> void:
+func _update_inv(index : int = -1) -> void:
 	if !inventory_display:
 		return
 	
@@ -83,20 +111,20 @@ static func _update_inv(index : int = -1) -> void:
 
 #game values
 
-static var game_values : Dictionary
+var game_values : Dictionary
 
 ## remember to check if null result.
-static func _get_game_value(id : String) -> Variant:
+func _get_game_value(id : String) -> Variant:
 	if !game_values:
 		_reset_values()
 	
 	return game_values.get(id)
 
-static func _set_game_value(id : String, value : Variant) -> void:
+func _set_game_value(id : String, value : Variant) -> void:
 	if !game_values:
 		_reset_values()
 	
 	game_values.set(id, value)
 
-static func _reset_values() -> void:
+func _reset_values() -> void:
 	game_values = {}

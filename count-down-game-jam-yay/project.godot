@@ -17,7 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Saveable="*uid://b8jktoprxcq7y"
+Player="*uid://b8jktoprxcq7y"
+AudioPlayer="*uid://cyy3ucr0c73ln"
+MusicPlayer="*uid://cftbo27akou81"
+AmbiancePlayer="*uid://b8mggjbl5rcs6"
 
 [display]
 
