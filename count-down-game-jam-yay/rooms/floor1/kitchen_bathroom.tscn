@@ -49,3 +49,4 @@ text = "mirror.."
 [node name="LeftRoomArrow4" parent="." unique_id=13454611 instance=ExtResource("3_aiqkm")]
 position = Vector2(108, 125)
 rotation = 1.5589893
+Scene = "res://rooms/floor2/hallway_bathroom.tscn"

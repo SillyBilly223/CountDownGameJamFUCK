@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cd7pffhed1o31"]
+
+[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_3jftr"]
+[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="2_iphyb"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="3_l4wv0"]
+
+[node name="MainRoom" type="Node2D" unique_id=1544991076]
+
+[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_3jftr")]
+position = Vector2(620, 111)
+lock_to_top_center = true
+
+[node name="Label" type="Label" parent="." unique_id=1049603567]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 381.0
+offset_top = 214.00003
+offset_right = 489.0
+offset_bottom = 263.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+text = "hidden room
+floor 2"
+
+[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_iphyb")]
+position = Vector2(141, 374)
+Scene = "res://rooms/floor2/right_room_1.tscn"
+
+[node name="RightRoomArrow" parent="." unique_id=260532681 instance=ExtResource("3_l4wv0")]
+position = Vector2(969, 371)
+Scene = "res://rooms/floor2/left_room_1.tscn"
+
+[node name="RightRoomArrow2" parent="." unique_id=1938193100 instance=ExtResource("3_l4wv0")]
+position = Vector2(540.99994, 577.99994)
+rotation = 1.5791299
+scale = Vector2(0.51934946, 2.6809409)
+Scene = "res://rooms/floor1/main_room.tscn"

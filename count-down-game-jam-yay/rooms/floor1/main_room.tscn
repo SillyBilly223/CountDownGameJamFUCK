@@ -23,7 +23,7 @@ Scene = "res://rooms/floor1/dining_room.tscn"
 [node name="LeftRoomArrow2" parent="." unique_id=201403606 instance=ExtResource("2_sybnr")]
 position = Vector2(1028, 135.99997)
 rotation = -0.7096973
-Scene = "res://rooms/floor2/left_hallway.tscn"
+Scene = "res://rooms/floor2/right_hall.tscn"
 
 [node name="Label" type="Label" parent="." unique_id=1049603567]
 anchors_preset = 8
@@ -48,4 +48,4 @@ Scene = "res://rooms/floor1/library.tscn"
 [node name="LeftRoomArrow4" parent="." unique_id=13454611 instance=ExtResource("3_sybnr")]
 position = Vector2(108, 125)
 rotation = 0.5151133
-Scene = "res://rooms/floor2/right_hallway.tscn"
+Scene = "res://rooms/floor2/left_hall.tscn"
