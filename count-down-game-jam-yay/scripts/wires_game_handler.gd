@@ -73,19 +73,21 @@ func _input(event : InputEvent) -> void:
 			for i in starts.size():
 				if starts[i].mouse_over:
 					current_wire = i
+					
+					print(current_wire)
 					break
 		else:
 			if !completed[current_wire]:
 				for i in ends.size():
-					if ends[i].mouse_over and i == current_wire:
-						completed[i] = true
+					if ends[i].mouse_over and end_indexes[i] == current_wire:
+						completed[end_indexes[i]] = true
 						_draw_line(-1, colors[current_wire], starts[current_wire].global_position, ends[i].global_position)
 			pressed = false
 			current_wire = -1
 			if _is_done():
 				timeup = true
 				manager._set_return_value(true)
-				time = 2.0
+				time = 60.0
 				win_img.visible = true
 
 
@@ -98,7 +100,7 @@ func _process(delta: float) -> void:
 			Player._get_audio()._play_sound(close_sound)
 			manager._on_finished()
 		else:
-			time = 2.0
+			time = 60.0
 			timeup = true
 			manager._set_return_value(false)
 			lose_img.visible = true
