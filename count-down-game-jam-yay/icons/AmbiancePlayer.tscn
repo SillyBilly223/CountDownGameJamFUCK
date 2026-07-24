@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b8mggjbl5rcs6"]
 
 [ext_resource type="Script" uid="uid://47nt7kkovmp5" path="res://scripts/global_ambiance.gd" id="1_bx6tu"]
+[ext_resource type="AudioStream" uid="uid://cg2qfcrv2qfw" path="res://audio/music/ScaryFuckingAmbience2.ogg" id="1_v2ayd"]
 
 [node name="AmbiancePlayer" type="AudioStreamPlayer" unique_id=1458109358]
+stream = ExtResource("1_v2ayd")
+parameters/looping = true
 script = ExtResource("1_bx6tu")
