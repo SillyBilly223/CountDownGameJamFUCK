@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cftbo27akou81"]
 
-[ext_resource type="AudioStream" uid="uid://sxy605mba0bp" path="res://audio/music/CreepyFuckingAmbience.ogg" id="1_4oyw4"]
+[ext_resource type="AudioStream" uid="uid://dxnrppgjhb0ri" path="res://audio/music/ScaryFuckingAmbience3.ogg" id="1_4oyw4"]
 [ext_resource type="Script" uid="uid://q7oedsg7j5s8" path="res://scripts/global_music.gd" id="1_r0wvo"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1458109358]
 stream = ExtResource("1_4oyw4")
+volume_db = -20.0
 autoplay = true
 parameters/looping = true
 script = ExtResource("1_r0wvo")

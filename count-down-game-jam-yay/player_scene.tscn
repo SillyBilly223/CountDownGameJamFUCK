@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://o6a34ot8v3fn"]
+
+[ext_resource type="Script" uid="uid://b8jktoprxcq7y" path="res://scripts/player_data.gd" id="1_g662q"]
+
+[node name="PlayerScene" type="Node" unique_id=24161793]
+script = ExtResource("1_g662q")
+metadata/_custom_type_script = "uid://b8jktoprxcq7y"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=730880369]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1372328737]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=1138498227]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.19800001
+anchor_bottom = 0.193
+offset_right = -372.16003
+offset_bottom = -200.44

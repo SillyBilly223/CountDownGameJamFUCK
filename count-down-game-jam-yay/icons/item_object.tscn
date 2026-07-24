@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://blcc8gf0exxii"]
+
+[ext_resource type="Script" uid="uid://b87vwlxkqt26l" path="res://scripts/gain_item_action.gd" id="1_1jbcd"]
+[ext_resource type="Resource" uid="uid://doxgsfdhy6rg7" path="res://items/test_item.tres" id="2_v0jhs"]
+[ext_resource type="Texture2D" uid="uid://c6v8424v4s3ul" path="res://items/TestItemSprite.png" id="3_11i1n"]
+[ext_resource type="Script" uid="uid://biwh2cnyxu3mb" path="res://scripts/change_scene_button.gd" id="5_y465i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv2lo"]
+size = Vector2(127, 127)
+
+[node name="RightRoomArrow" type="Area2D" unique_id=626279613 node_paths=PackedStringArray("action", "cost_popup", "shape")]
+script = ExtResource("1_1jbcd")
+item = ExtResource("2_v0jhs")
+action = NodePath("label_holder2/Label")
+cost_popup = NodePath("label_holder2")
+shape = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1534382470]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_11i1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1944738772]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_hv2lo")
+
+[node name="label_holder2" type="Node2D" parent="." unique_id=846741852]
+position = Vector2(0, -3)
+
+[node name="Label" type="Label" parent="label_holder2" unique_id=958828297 node_paths=PackedStringArray("additional_labels")]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -18.0
+offset_right = 30.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.043137256, 0.24313726, 0.22352941, 1)
+text = "whats up guys"
+script = ExtResource("5_y465i")
+cost = 5
+additional_labels = [NodePath("../Label2")]
+
+[node name="Label2" type="Label" parent="label_holder2" unique_id=1118345152]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -21.0
+offset_right = 27.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "yo im a  - item"

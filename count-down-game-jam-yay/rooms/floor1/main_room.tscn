@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_sybnr"]
 [ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_sybnr"]
 [ext_resource type="Texture2D" uid="uid://dtwv48xcifuic" path="res://sprites/enterance_background.png" id="4_c7gki"]
+[ext_resource type="PackedScene" uid="uid://blcc8gf0exxii" path="res://icons/item_object.tscn" id="5_gcary"]
 
 [node name="MainRoom" type="Node2D" unique_id=1544991076]
 
@@ -51,8 +52,11 @@ position = Vector2(108, 125)
 rotation = 0.5151133
 Scene = "res://rooms/floor2/left_hall.tscn"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=486568954]
+[node name="Background" type="Sprite2D" parent="." unique_id=486568954]
 z_index = -4
 position = Vector2(72, 0)
 texture = ExtResource("4_c7gki")
 centered = false
+
+[node name="RightRoomArrow" parent="." unique_id=1375192488 instance=ExtResource("5_gcary")]
+position = Vector2(928, 755)
