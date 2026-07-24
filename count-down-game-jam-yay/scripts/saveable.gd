@@ -47,66 +47,29 @@ func _get_ambiance() -> GlobalAmbiancePlayer:
 func _process(delta : float) -> void:
 	pass
 
-
 # INVENTORY STUFF
-
-var inv_size : int
-
-var inv_id : Array[int]
-var inv_names : Array[String]
-var inv_icon : Array[Texture2D]
 
 var inventory_display : Node2D
 
-func _set_inv_item(index : int, item : String, icon : Texture2D, id : int = 0) -> void:
-	if !inv_id:
-		_reset_inv()
-	if index >= inv_size:
-		return
-	
-	inv_id[index] = id
-	inv_names[index] = item
-	inv_icon[index] = icon
-	_update_inv(index)
+var inv_items : Array[Item]
 
-func _del_item(index : int) -> void:
-	if !inv_id or index >= inv_size:
-		return
-	
-	inv_id[index] = -1
-	inv_names[index] = ""
-	inv_icon[index] = null
-	_update_inv(index)
+func add_item(item : Item):
+	inv_items.append(item)
+	update_inventory()
 
-func _get_item(index : int) -> Dictionary:
-	if !inv_id or index >= inv_size or !inv_names[index]:
-		return {"id":-1, "item":"", "icon":null}
-	
-	var item = {"id": inv_id[index], "item":inv_names[index], "icon":inv_icon[index]}
-	return item
+func consume_item(item_id : String):
+	var index = inv_items.find_custom(is_item.bind(item_id))
+	if index == -1: return false
+	inv_items.remove_at(index)
+	return true
 
-func _pop_item(index : int) -> Dictionary:
-	var item = _get_item(index)
-	_del_item(index)
-	return item
+func has_item(item_id : String):
+	return inv_items.find_custom(is_item.bind(item_id)) != -1
 
-func _reset_inv() -> void:
-	inv_id = []
-	inv_id.resize(inv_size)
-	inv_id.fill(-1)
-	
-	inv_names = []
-	inv_names.resize(inv_size)
-	
-	inv_icon = []
-	inv_icon.resize(inv_size)
-	
-	_update_inv(-1)
+func is_item(item : Item, item_id : String):
+	return item_id == item.itemID
 
-func _update_inv(index : int = -1) -> void:
-	if !inventory_display:
-		return
-	
+func update_inventory():
 	pass
 
 #game values
