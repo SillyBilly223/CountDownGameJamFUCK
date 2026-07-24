@@ -14,7 +14,7 @@ func _ready() -> void:
 	_set_time()
 	tick = 1.0
 	if lock_to_top_center:
-		self.global_position = Vector2(576.0, 72.0)
+		self.global_position = Vector2(960.0, 72.0)
 		self.scale = Vector2(0.2, 0.2)
 
 func _set_time() -> void:

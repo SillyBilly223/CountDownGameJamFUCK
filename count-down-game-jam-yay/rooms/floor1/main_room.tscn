@@ -8,22 +8,22 @@
 [node name="MainRoom" type="Node2D" unique_id=1544991076]
 
 [node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_1c81y")]
-position = Vector2(620, 111)
+position = Vector2(1919.9999, 9.536743e-07)
 lock_to_top_center = true
 
 [node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_sybnr")]
-position = Vector2(1039, 520)
+position = Vector2(1599, 945)
 Scene = "res://rooms/floor1/infinite_hallway.tscn"
 
 [node name="LeftRoomArrow5" parent="." unique_id=805106808 instance=ExtResource("2_sybnr")]
-position = Vector2(612, 540)
+position = Vector2(943, 610)
 rotation = -1.5902038
 scale = Vector2(0.40011346, 1)
 Scene = "res://rooms/floor1/dining_room.tscn"
 
 [node name="LeftRoomArrow2" parent="." unique_id=201403606 instance=ExtResource("2_sybnr")]
-position = Vector2(1028, 135.99997)
-rotation = -0.7096973
+position = Vector2(1602, 118.99994)
+rotation = -2.6319335
 Scene = "res://rooms/floor2/right_hall.tscn"
 
 [node name="Label" type="Label" parent="." unique_id=1049603567]
@@ -43,12 +43,12 @@ text = "main room
 floor 1"
 
 [node name="LeftRoomArrow3" parent="." unique_id=776123765 instance=ExtResource("3_sybnr")]
-position = Vector2(111, 529)
+position = Vector2(169, 941)
 Scene = "res://rooms/floor1/library.tscn"
 
 [node name="LeftRoomArrow4" parent="." unique_id=13454611 instance=ExtResource("3_sybnr")]
-position = Vector2(108, 125)
-rotation = 0.5151133
+position = Vector2(321, 125)
+rotation = 2.5873282
 Scene = "res://rooms/floor2/left_hall.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=486568954]
