@@ -26,6 +26,8 @@ func _ready() -> void:
 		cost_popup.global_position = Vector2(self.global_position.x, self.global_position.y + label_y_mod)
 
 func _mouse_enter() -> void:
+	if Player._get_game_value("busy"):
+		return
 	mouse_over = true
 	if cost_popup: cost_popup.visible = true
 	if shape: shape.modulate = hovered_color

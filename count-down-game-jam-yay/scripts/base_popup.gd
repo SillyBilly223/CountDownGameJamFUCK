@@ -14,9 +14,11 @@ func _set_return_value(value : Variant) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	active = true
+	Player._set_game_value("busy", true)
 
 func _on_finished() -> Variant:
 	active = false
+	Player._set_game_value("busy", false)
 	return return_value
 
 func _get_output() -> Variant:

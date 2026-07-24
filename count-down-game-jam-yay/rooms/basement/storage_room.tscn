@@ -3,6 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_87kde"]
 [ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_tfybm"]
 [ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_tfybm"]
+[ext_resource type="Texture2D" uid="uid://le5thh44c1ol" path="res://icons/IMG_8944.png" id="4_46i38"]
+[ext_resource type="Script" uid="uid://ds6ofnj7whabv" path="res://scripts/action_button.gd" id="4_ylnye"]
+[ext_resource type="Script" uid="uid://bl8wcym1b0md6" path="res://scripts/popup_action.gd" id="5_j2fml"]
+[ext_resource type="PackedScene" uid="uid://3ama70oshr7c" path="res://minigames/wires_puzzle.tscn" id="6_ylnye"]
+[ext_resource type="Script" uid="uid://bhtk625cxjiuh" path="res://scripts/GameValueResultHandler.gd" id="7_j2fml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv2lo"]
+size = Vector2(112, 75)
 
 [node name="MainRoom" type="Node2D" unique_id=1544991076]
 
@@ -49,3 +57,45 @@ Scene = "res://rooms/floor2/giant_garden.tscn"
 [node name="RightRoomArrow2" parent="." unique_id=1070957126 instance=ExtResource("2_tfybm")]
 position = Vector2(900, 369)
 Scene = "res://rooms/basement/freezer.tscn"
+
+[node name="generator_holder" type="Area2D" parent="." unique_id=1893712334 node_paths=PackedStringArray("action", "cost_popup", "shape")]
+position = Vector2(217, 115)
+script = ExtResource("4_ylnye")
+action = NodePath("action_holder/Label")
+cost_popup = NodePath("action_holder")
+shape = NodePath("outline")
+default_color = Color(0, 0, 0, 0)
+hovered_color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="generator_holder" unique_id=596661733]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_46i38")
+
+[node name="outline" type="Sprite2D" parent="generator_holder" unique_id=1093918750]
+modulate = Color(1, 0, 0, 1)
+z_index = -1
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("4_46i38")
+
+[node name="result_handler" type="Node2D" parent="generator_holder" unique_id=2069092693]
+script = ExtResource("7_j2fml")
+gameval = "GeneratorPower"
+
+[node name="action_holder" type="Node2D" parent="generator_holder" unique_id=1671101234]
+
+[node name="Label" type="Label" parent="generator_holder/action_holder" unique_id=776865571 node_paths=PackedStringArray("handler", "img_hide")]
+offset_left = -59.0
+offset_top = -58.0
+offset_right = 55.0
+offset_bottom = -35.0
+text = "20 second cost"
+script = ExtResource("5_j2fml")
+popup_base = ExtResource("6_ylnye")
+handler = NodePath("../../result_handler")
+hide_on_finish = true
+img_hide = NodePath("../../Sprite2D")
+cost = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="generator_holder" unique_id=683033915]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hv2lo")
