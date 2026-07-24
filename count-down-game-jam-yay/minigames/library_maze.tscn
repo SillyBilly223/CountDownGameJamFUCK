@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://lc68o2qsxnk8"]
+
+[ext_resource type="Script" uid="uid://ccdy8ywr3k8nm" path="res://scripts/action_popup.gd" id="1_da3io"]
+[ext_resource type="Script" uid="uid://jx1mjpu1awff" path="res://scripts/maze_game_handler.gd" id="2_23dd7"]
+[ext_resource type="Texture2D" uid="uid://l52yc7ldviie" path="res://rooms/testing/ServerTileSet.png" id="3_da3io"]
+[ext_resource type="Texture2D" uid="uid://le5thh44c1ol" path="res://icons/IMG_8944.png" id="5_f0f2l"]
+[ext_resource type="Script" uid="uid://i7cy44r4tox2" path="res://scripts/puzzle_hoverable.gd" id="6_jnrma"]
+[ext_resource type="Texture2D" uid="uid://chg38obj07pio" path="res://icons/testing/circle.png" id="7_d3pac"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8st6l"]
+texture = ExtResource("3_da3io")
+texture_region_size = Vector2i(256, 256)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:1/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:0/0 = 0
+4:1/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hv2lo"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 2
+sources/1 = SubResource("TileSetAtlasSource_8st6l")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hv2lo"]
+radius = 33.01515
+
+[node name="LibraryMaze" type="Node2D" unique_id=638783614]
+script = ExtResource("1_da3io")
+
+[node name="maze_handler" type="Node2D" parent="." unique_id=298892616 node_paths=PackedStringArray("manager")]
+script = ExtResource("2_23dd7")
+manager = NodePath("..")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="maze_handler" unique_id=1248605529]
+tile_set = SubResource("TileSet_hv2lo")
+
+[node name="bkg" type="Sprite2D" parent="maze_handler" unique_id=1584699601]
+position = Vector2(446.99997, 263.5)
+scale = Vector2(0.856046, 0.7415255)
+texture = ExtResource("5_f0f2l")
+
+[node name="startsholder" type="Node2D" parent="maze_handler" unique_id=148757454]
+position = Vector2(3, -14)
+
+[node name="node1" type="Area2D" parent="maze_handler/startsholder" unique_id=513163407 node_paths=PackedStringArray("label", "icon")]
+position = Vector2(110, 125)
+script = ExtResource("6_jnrma")
+label = NodePath("Label")
+icon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="maze_handler/startsholder/node1" unique_id=1643791657]
+texture = ExtResource("7_d3pac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maze_handler/startsholder/node1" unique_id=1151998780]
+shape = SubResource("CircleShape2D_hv2lo")
+
+[node name="Label" type="Label" parent="maze_handler/startsholder/node1" unique_id=170094840]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="node2" type="Area2D" parent="maze_handler/startsholder" unique_id=312452719 node_paths=PackedStringArray("label", "icon")]
+position = Vector2(110, 225)
+script = ExtResource("6_jnrma")
+label = NodePath("Label")
+icon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="maze_handler/startsholder/node2" unique_id=467358558]
+texture = ExtResource("7_d3pac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maze_handler/startsholder/node2" unique_id=1396561266]
+shape = SubResource("CircleShape2D_hv2lo")
+
+[node name="Label" type="Label" parent="maze_handler/startsholder/node2" unique_id=857236402]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="node3" type="Area2D" parent="maze_handler/startsholder" unique_id=605424905 node_paths=PackedStringArray("label", "icon")]
+position = Vector2(110, 325)
+script = ExtResource("6_jnrma")
+label = NodePath("Label")
+icon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="maze_handler/startsholder/node3" unique_id=775023483]
+texture = ExtResource("7_d3pac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maze_handler/startsholder/node3" unique_id=1666671422]
+shape = SubResource("CircleShape2D_hv2lo")
+
+[node name="Label" type="Label" parent="maze_handler/startsholder/node3" unique_id=262471497]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="node4" type="Area2D" parent="maze_handler/startsholder" unique_id=1996590466 node_paths=PackedStringArray("label", "icon")]
+position = Vector2(110, 425)
+script = ExtResource("6_jnrma")
+label = NodePath("Label")
+icon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="maze_handler/startsholder/node4" unique_id=593768102]
+texture = ExtResource("7_d3pac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maze_handler/startsholder/node4" unique_id=1130079001]
+shape = SubResource("CircleShape2D_hv2lo")
+
+[node name="Label" type="Label" parent="maze_handler/startsholder/node4" unique_id=160329110]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="endsholder" type="Node2D" parent="maze_handler" unique_id=142840234]
+position = Vector2(651, -17)
+
+[node name="node1" type="Area2D" parent="maze_handler/endsholder" unique_id=988248756 node_paths=PackedStringArray("label", "icon")]
+position = Vector2(110, 125)
+script = ExtResource("6_jnrma")
+label = NodePath("Label")
+icon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="maze_handler/endsholder/node1" unique_id=711773841]
+texture = ExtResource("7_d3pac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maze_handler/endsholder/node1" unique_id=1702346650]
+shape = SubResource("CircleShape2D_hv2lo")
+
+[node name="Label" type="Label" parent="maze_handler/endsholder/node1" unique_id=1606827840]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="node2" type="Area2D" parent="maze_handler/endsholder" unique_id=1201859447 node_paths=PackedStringArray("label", "icon")]
+position = Vector2(110, 225)
+script = ExtResource("6_jnrma")
+label = NodePath("Label")
+icon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="maze_handler/endsholder/node2" unique_id=1186891585]
+texture = ExtResource("7_d3pac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maze_handler/endsholder/node2" unique_id=2088074100]
+shape = SubResource("CircleShape2D_hv2lo")
+
+[node name="Label" type="Label" parent="maze_handler/endsholder/node2" unique_id=437220703]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="node3" type="Area2D" parent="maze_handler/endsholder" unique_id=56208277 node_paths=PackedStringArray("label", "icon")]
+position = Vector2(110, 325)
+script = ExtResource("6_jnrma")
+label = NodePath("Label")
+icon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="maze_handler/endsholder/node3" unique_id=1040944080]
+texture = ExtResource("7_d3pac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maze_handler/endsholder/node3" unique_id=641778447]
+shape = SubResource("CircleShape2D_hv2lo")
+
+[node name="Label" type="Label" parent="maze_handler/endsholder/node3" unique_id=1446305308]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="node4" type="Area2D" parent="maze_handler/endsholder" unique_id=124951340 node_paths=PackedStringArray("label", "icon")]
+position = Vector2(110, 425)
+script = ExtResource("6_jnrma")
+label = NodePath("Label")
+icon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="maze_handler/endsholder/node4" unique_id=708574049]
+texture = ExtResource("7_d3pac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maze_handler/endsholder/node4" unique_id=1835118625]
+shape = SubResource("CircleShape2D_hv2lo")
+
+[node name="Label" type="Label" parent="maze_handler/endsholder/node4" unique_id=1891193728]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="timer" type="Label" parent="maze_handler" unique_id=680610881]
+offset_left = 336.0
+offset_top = -47.0
+offset_right = 519.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 160
+text = "20"
+
+[node name="Node2D" type="Node2D" parent="maze_handler" unique_id=1381401637]
+
+[node name="win" type="Label" parent="maze_handler/Node2D" unique_id=109113181]
+offset_left = 132.0
+offset_top = 37.999992
+offset_right = 807.0
+offset_bottom = 257.0
+rotation = 0.2761577
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 160
+text = "SUCCESS"
+
+[node name="Node2D2" type="Node2D" parent="maze_handler" unique_id=79540730]
+
+[node name="fail" type="Label" parent="maze_handler/Node2D2" unique_id=435662632]
+offset_left = 98.0
+offset_top = 177.0
+offset_right = 735.0
+offset_bottom = 396.0
+rotation = -0.19777991
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 160
+text = "FAILURE"
