@@ -1,25 +1,113 @@
 [gd_scene format=3 uid="uid://o6a34ot8v3fn"]
 
 [ext_resource type="Script" uid="uid://b8jktoprxcq7y" path="res://scripts/player_data.gd" id="1_g662q"]
+[ext_resource type="Script" uid="uid://us2m5mudrl48" path="res://scripts/inventory.gd" id="2_g5c48"]
+[ext_resource type="Texture2D" uid="uid://ds4tncem6ua2d" path="res://sprites/journal.png" id="3_fwu20"]
+[ext_resource type="Texture2D" uid="uid://gq64d4bbf0eu" path="res://sprites/itembox.png" id="4_xcj4c"]
 
-[node name="PlayerScene" type="Node" unique_id=24161793]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_re3fb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xw3vw"]
+
+[node name="PlayerScene" type="Node" unique_id=24161793 node_paths=PackedStringArray("_inventory")]
 script = ExtResource("1_g662q")
+_inventory = NodePath("CanvasLayer/Inventory")
 metadata/_custom_type_script = "uid://b8jktoprxcq7y"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=730880369]
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1372328737]
+[node name="Inventory" type="Panel" parent="CanvasLayer" unique_id=1372328737 node_paths=PackedStringArray("_items_select", "_evidence_select", "_evidence_image", "_inventory_text")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_g5c48")
+_items_select = NodePath("ItemList")
+_evidence_select = NodePath("EvidenceList")
+_evidence_image = NodePath("EvidenceImage")
+_inventory_text = NodePath("InventoryDesc")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=1138498227]
+[node name="ItemList" type="ItemList" parent="CanvasLayer/Inventory" unique_id=1597314360]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.19800001
-anchor_bottom = 0.193
-offset_right = -372.16003
-offset_bottom = -200.44
+anchor_left = 0.10885417
+anchor_top = 0.096296296
+anchor_right = 0.40416667
+anchor_bottom = 0.4398148
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_re3fb")
+metadata/_edit_use_anchors_ = true
+
+[node name="EvidenceList" type="ItemList" parent="CanvasLayer/Inventory" unique_id=1094088552]
+self_modulate = Color(0.433493, 0.433493, 0.433493, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0734375
+anchor_top = 0.56666666
+anchor_right = 0.41533855
+anchor_bottom = 0.9203704
+offset_right = 106.55
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xw3vw")
+item_count = 1
+item_0/text = "homerer"
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryDesc" type="RichTextLabel" parent="CanvasLayer/Inventory" unique_id=252633918]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -865.0
+offset_top = -440.0
+offset_right = -121.0
+offset_bottom = 436.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 34
+text = "epic bacon"
+
+[node name="EvidenceImage" type="TextureRect" parent="CanvasLayer/Inventory" unique_id=1057813296]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 201.0
+offset_right = 1839.0
+offset_bottom = 779.0
+mouse_filter = 2
+
+[node name="BookBackground" type="TextureRect" parent="CanvasLayer/Inventory" unique_id=1553922881]
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fwu20")
+
+[node name="ItemBackground" type="TextureRect" parent="CanvasLayer/Inventory" unique_id=929937379]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.071354166
+anchor_top = 0.072222225
+anchor_right = 0.465625
+anchor_bottom = 0.5888889
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_xcj4c")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="focus_entered" from="CanvasLayer/Inventory/ItemList" to="CanvasLayer/Inventory" method="_on_item_list_focus_entered"]
+[connection signal="item_clicked" from="CanvasLayer/Inventory/ItemList" to="CanvasLayer/Inventory" method="_on_item_list_item_clicked"]
+[connection signal="item_clicked" from="CanvasLayer/Inventory/EvidenceList" to="CanvasLayer/Inventory" method="_on_item_list_item_clicked_evidence"]

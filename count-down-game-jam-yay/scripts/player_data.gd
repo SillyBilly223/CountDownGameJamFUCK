@@ -2,6 +2,8 @@ class_name PlayerData
 
 extends Node
 
+@export var _inventory : InventoryDisplay
+
 var realtime : bool
 
 func _set_realtime(value : bool) -> void:
@@ -17,7 +19,6 @@ func _consume_time(amt : int) -> void:
 
 func _get_time() -> int:
 	return time
-
 
 # audio player
 var Audio : GlobalAudioPlayer
@@ -47,15 +48,23 @@ func _get_ambiance() -> GlobalAmbiancePlayer:
 func _process(delta : float) -> void:
 	pass
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		_inventory.set_panel(!_inventory.is_visible_in_tree())
+
 # INVENTORY STUFF
 
 var inventory_display : Node2D
 
 var inv_items : Array[Item]
+var inv_evidence : Array[Item]
+
+var selected_item : Item
 
 func add_item(item : Item):
-	inv_items.append(item)
-	update_inventory()
+	if item.is_evidence: inv_evidence.append(item)
+	else: inv_items.append(item)
+	_inventory.update_inventory()
 
 func consume_item(item_id : String):
 	var index = inv_items.find_custom(is_item.bind(item_id))
@@ -68,6 +77,9 @@ func has_item(item_id : String):
 
 func is_item(item : Item, item_id : String):
 	return item_id == item.itemID
+
+func select_item(item : Item):
+	selected_item = item
 
 func update_inventory():
 	pass
