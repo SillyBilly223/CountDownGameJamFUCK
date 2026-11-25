@@ -6,6 +6,5 @@
 [node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1458109358]
 stream = ExtResource("1_4oyw4")
 volume_db = -20.0
-autoplay = true
 parameters/looping = true
 script = ExtResource("1_r0wvo")

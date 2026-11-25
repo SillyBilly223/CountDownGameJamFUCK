@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://xwhtxfu0pwmv"]
+
+[ext_resource type="Script" uid="uid://cvm7iij77tcga" path="res://scripts/rooms/room_bathroom.gd" id="1_5ap5i"]
+[ext_resource type="Texture2D" uid="uid://c6ibkcmytu41c" path="res://sprites/bathroom.png" id="2_horsu"]
+[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_5ap5i"]
+[ext_resource type="Texture2D" uid="uid://c4gcuppbh6y7y" path="res://items/sigil_2.png" id="4_bxy5d"]
+
+[node name="Bathroom" type="Node" unique_id=987758054 node_paths=PackedStringArray("sigil_sprite", "sprite")]
+script = ExtResource("1_5ap5i")
+enter_dialouge = Array[String](["*You feel an otherworldy entity swoop out as you open the door.*"])
+sigil_sprite = NodePath("Sigil")
+sigil_digit = "four"
+sigil_key = 11
+sprite = NodePath("Background")
+metadata/_custom_type_script = "uid://dchdao4cau6w2"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1279753990]
+z_index = -4
+texture = ExtResource("2_horsu")
+centered = false
+
+[node name="LeftRoomArrow3" parent="." unique_id=626279613 instance=ExtResource("3_5ap5i")]
+position = Vector2(144, 999.99994)
+rotation = -0.6107725
+Scene = "res://rooms/floor2/hallway.tscn"
+
+[node name="Sigil" type="Sprite2D" parent="." unique_id=703491251]
+texture = ExtResource("4_bxy5d")
+centered = false

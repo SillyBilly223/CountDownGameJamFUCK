@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://ctk4uti43j53s"]
+
+[ext_resource type="Script" uid="uid://dchdao4cau6w2" path="res://scripts/rooms/room_manager.gd" id="1_v1wlp"]
+[ext_resource type="Texture2D" uid="uid://b5ob2dgqva55n" path="res://sprites/captive.png" id="2_fkey4"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="3_07cxr"]
+[ext_resource type="Script" uid="uid://eq7uess6ckp1" path="res://scripts/buttons/item_collect_button.gd" id="3_466w6"]
+[ext_resource type="Script" uid="uid://bh0qwmnmvcpn5" path="res://scripts/buttons/action_interact_dialouge.gd" id="4_53dja"]
+[ext_resource type="Texture2D" uid="uid://4pclm5gb0060" path="res://items/necklece_highlight.png" id="4_qmwc1"]
+[ext_resource type="Texture2D" uid="uid://bwi80spyd1n6n" path="res://items/necklece.png" id="5_53dja"]
+
+[sub_resource type="Resource" id="Resource_reuep"]
+script = ExtResource("4_53dja")
+dialouge = Array[String](["*You feel an otherworldy aura from this necklace*"])
+metadata/_custom_type_script = "uid://bh0qwmnmvcpn5"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gso8"]
+size = Vector2(36.983467, 43.125)
+
+[node name="CaptiveRoom" type="Node" unique_id=1963259035]
+script = ExtResource("1_v1wlp")
+metadata/_custom_type_script = "uid://dchdao4cau6w2"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1945888484 node_paths=PackedStringArray("item_sprite")]
+position = Vector2(733.9999, 927)
+scale = Vector2(4.84, 1.6)
+script = ExtResource("3_466w6")
+item_sprite = NodePath("LetterItem")
+hover_sprite = ExtResource("4_qmwc1")
+collection_picked_id = 10
+dissapear_value = true
+action = SubResource("Resource_reuep")
+
+[node name="LetterItem" type="Sprite2D" parent="Area2D" unique_id=2090754420]
+scale = Vector2(0.20661156, 0.625)
+texture = ExtResource("5_53dja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1502486308]
+position = Vector2(0.51652527, -4.6875)
+shape = SubResource("RectangleShape2D_2gso8")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=987138399]
+z_index = -4
+texture = ExtResource("2_fkey4")
+centered = false
+
+[node name="LeftRoomArrow3" parent="." unique_id=626279613 instance=ExtResource("3_07cxr")]
+position = Vector2(360, 960)
+rotation = -3.9704328
+scale = Vector2(0.7985721, 0.86614335)
+Scene = "res://rooms/basement/basement_room.tscn"

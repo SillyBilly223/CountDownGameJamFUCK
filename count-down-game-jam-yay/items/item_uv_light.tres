@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b358pdwceik0u"]
+
+[ext_resource type="Script" uid="uid://crc2bpl7c8h06" path="res://scripts/item.gd" id="1_dcqsb"]
+[ext_resource type="Texture2D" uid="uid://blavg532sukx7" path="res://items/uv_light.png" id="1_g6p10"]
+
+[resource]
+script = ExtResource("1_dcqsb")
+icon = ExtResource("1_g6p10")
+item_name = "UV Light"
+itemID = "uv_light"
+item_description = "guuhh??"
+metadata/_custom_type_script = "uid://crc2bpl7c8h06"

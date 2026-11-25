@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b5luajg21mnjo"]
+
+[ext_resource type="Script" uid="uid://dchdao4cau6w2" path="res://scripts/rooms/room_manager.gd" id="1_4soxc"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_ykvt8"]
+[ext_resource type="Texture2D" uid="uid://dckh1ktj02q0i" path="res://sprites/study.png" id="3_aoueh"]
+[ext_resource type="Script" uid="uid://dapgyecndoew0" path="res://scripts/buttons/trigger_action_button.gd" id="4_oeoro"]
+[ext_resource type="Texture2D" uid="uid://kxi60f3wf04h" path="res://items/study_laptop.png" id="5_ujx67"]
+[ext_resource type="Script" uid="uid://c1w6o7nnphn86" path="res://scripts/buttons/action_laptop.gd" id="6_tppnv"]
+
+[sub_resource type="Resource" id="Resource_xw3vw"]
+script = ExtResource("6_tppnv")
+metadata/_custom_type_script = "uid://c1w6o7nnphn86"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3rb5"]
+size = Vector2(38.016556, 75)
+
+[node name="Study" type="Node" unique_id=1030713831 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_4soxc")
+sprite = NodePath("Background")
+metadata/_custom_type_script = "uid://dchdao4cau6w2"
+
+[node name="LeftRoomArrow5" parent="." unique_id=626279613 instance=ExtResource("2_ykvt8")]
+position = Vector2(888, 984)
+rotation = -4.726593
+scale = Vector2(0.40011346, 1)
+Scene = "res://rooms/floor2/hallway.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1661493752]
+z_index = -4
+texture = ExtResource("3_aoueh")
+centered = false
+
+[node name="LaptopWHAT" type="Area2D" parent="." unique_id=1520271827 node_paths=PackedStringArray("item_sprite")]
+position = Vector2(1532, 754)
+scale = Vector2(4.84, 1.6)
+script = ExtResource("4_oeoro")
+item_sprite = NodePath("Laptop")
+hover_sprite = ExtResource("5_ujx67")
+action = SubResource("Resource_xw3vw")
+
+[node name="Laptop" type="Sprite2D" parent="LaptopWHAT" unique_id=1600208164]
+position = Vector2(-131.40495, -136.25)
+scale = Vector2(0.20661156, 0.625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaptopWHAT" unique_id=1098279818]
+position = Vector2(-112.39665, -48.75)
+shape = SubResource("RectangleShape2D_t3rb5")

@@ -1,20 +1,68 @@
 [gd_scene format=3 uid="uid://o6a34ot8v3fn"]
 
 [ext_resource type="Script" uid="uid://b8jktoprxcq7y" path="res://scripts/player_data.gd" id="1_g662q"]
+[ext_resource type="AudioStream" uid="uid://vq6incsmylni" path="res://audio/noise/steps-01.ogg" id="2_doaq5"]
 [ext_resource type="Script" uid="uid://us2m5mudrl48" path="res://scripts/inventory.gd" id="2_g5c48"]
+[ext_resource type="Script" uid="uid://heshwnoutxam" path="res://scripts/scene_loader.gd" id="2_xcj4c"]
+[ext_resource type="AudioStream" uid="uid://c1mo40mlob5gb" path="res://audio/noise/steps-02.ogg" id="3_erh1e"]
 [ext_resource type="Texture2D" uid="uid://ds4tncem6ua2d" path="res://sprites/journal.png" id="3_fwu20"]
-[ext_resource type="Texture2D" uid="uid://gq64d4bbf0eu" path="res://sprites/itembox.png" id="4_xcj4c"]
+[ext_resource type="AudioStream" uid="uid://cvwr6m4h0u44" path="res://audio/noise/steps-03.ogg" id="4_q5uyv"]
+[ext_resource type="AudioStream" uid="uid://bj10birtln0qg" path="res://audio/noise/steps-04.ogg" id="5_8dcw0"]
+[ext_resource type="AudioStream" uid="uid://bptwynmjurpvb" path="res://audio/music/Chase!!2.ogg" id="6_pclww"]
+[ext_resource type="AudioStream" uid="uid://bj4w3532wkycb" path="res://audio/noise/page_-01.ogg" id="9_eabao"]
+[ext_resource type="AudioStream" uid="uid://cybbbxtcno2sa" path="res://audio/noise/page_select-01.ogg" id="9_oj40i"]
+[ext_resource type="Script" uid="uid://n4fxkuww8exs" path="res://scripts/laptop_manager.gd" id="10_8dcw0"]
+[ext_resource type="Script" uid="uid://c1msj4lt57hux" path="res://scripts/dialogue/dialogue_manager.gd" id="10_erh1e"]
+[ext_resource type="AudioStream" uid="uid://4prexewd6qqc" path="res://audio/noise/page_-02.ogg" id="10_pw7pj"]
+[ext_resource type="AudioStream" uid="uid://dvdw6i6xhjbgm" path="res://audio/noise/page_select-02.ogg" id="10_ucdln"]
+[ext_resource type="AudioStream" uid="uid://cemo08rg5urim" path="res://audio/noise/page_select-03.ogg" id="11_22bmv"]
+[ext_resource type="Texture2D" uid="uid://dks5u61nij22k" path="res://items/Laptop_Password.png" id="11_k0e7r"]
+[ext_resource type="Texture2D" uid="uid://53j5xih1tcu3" path="res://items/laptop_open.png" id="12_wodox"]
+[ext_resource type="Texture2D" uid="uid://rdbn0kqbfx58" path="res://items/lock.png" id="13_k0e7r"]
+[ext_resource type="Script" uid="uid://qjj0s2u3u1p4" path="res://scripts/lock_manager.gd" id="13_wodox"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_re3fb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xw3vw"]
 
-[node name="PlayerScene" type="Node" unique_id=24161793 node_paths=PackedStringArray("_inventory")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnvo5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ocemr"]
+
+[node name="PlayerScene" type="Node" unique_id=24161793 node_paths=PackedStringArray("_inventory", "_dialogue_manager", "_laptop_manager", "_lock_manager", "_use_uv_light", "_use_spirit_box", "_timer", "_timer_label", "_scene_loader", "_darkness_panel")]
 script = ExtResource("1_g662q")
 _inventory = NodePath("CanvasLayer/Inventory")
+_dialogue_manager = NodePath("CanvasLayer/TextZone")
+_laptop_manager = NodePath("CanvasLayer/LaptopHandler")
+_lock_manager = NodePath("CanvasLayer/LockHandler")
+_use_uv_light = NodePath("CanvasLayer/HBoxContainer/UVLightButton")
+_use_spirit_box = NodePath("CanvasLayer/HBoxContainer/SpiritBoxButton")
+_timer = NodePath("Timer")
+_timer_label = NodePath("CanvasLayer/Label")
+_scene_loader = NodePath("SceneLoader")
+_darkness_panel = NodePath("CanvasLayer/DarknessPannel")
+walking_sounds = Array[AudioStream]([ExtResource("2_doaq5"), ExtResource("3_erh1e"), ExtResource("4_q5uyv"), ExtResource("5_8dcw0")])
+chase_song = ExtResource("6_pclww")
 metadata/_custom_type_script = "uid://b8jktoprxcq7y"
 
+[node name="SceneLoader" type="Node" parent="." unique_id=382385983]
+script = ExtResource("2_xcj4c")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=730880369]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=940159491]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 9.0
+offset_right = 87.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.38431373)
+theme_override_font_sizes/font_size = 68
+text = "15:00"
 
 [node name="Inventory" type="Panel" parent="CanvasLayer" unique_id=1372328737 node_paths=PackedStringArray("_items_select", "_evidence_select", "_evidence_image", "_inventory_text")]
 visible = false
@@ -29,9 +77,12 @@ _items_select = NodePath("ItemList")
 _evidence_select = NodePath("EvidenceList")
 _evidence_image = NodePath("EvidenceImage")
 _inventory_text = NodePath("InventoryDesc")
+page_sounds = Array[AudioStream]([ExtResource("10_pw7pj"), ExtResource("9_eabao")])
+page_close = Array[AudioStream]([ExtResource("9_oj40i"), ExtResource("10_ucdln"), ExtResource("11_22bmv")])
 metadata/_edit_use_anchors_ = true
 
 [node name="ItemList" type="ItemList" parent="CanvasLayer/Inventory" unique_id=1597314360]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.10885417
@@ -46,17 +97,15 @@ metadata/_edit_use_anchors_ = true
 self_modulate = Color(0.433493, 0.433493, 0.433493, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0734375
-anchor_top = 0.56666666
+anchor_left = 0.12107623
+anchor_top = 0.14074074
 anchor_right = 0.41533855
-anchor_bottom = 0.9203704
+anchor_bottom = 0.8296296
 offset_right = 106.55
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 34
 theme_override_styles/panel = SubResource("StyleBoxEmpty_xw3vw")
-item_count = 1
-item_0/text = "homerer"
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryDesc" type="RichTextLabel" parent="CanvasLayer/Inventory" unique_id=252633918]
@@ -66,22 +115,21 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -865.0
-offset_top = -440.0
-offset_right = -121.0
-offset_bottom = 436.0
+offset_left = -848.0
+offset_top = -380.0
+offset_right = -208.0
+offset_bottom = 356.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 34
-text = "epic bacon"
 
 [node name="EvidenceImage" type="TextureRect" parent="CanvasLayer/Inventory" unique_id=1057813296]
 layout_mode = 0
-offset_left = 993.0
-offset_top = 201.0
-offset_right = 1839.0
-offset_bottom = 779.0
+offset_left = 936.0
+offset_top = 152.0
+offset_right = 1576.0
+offset_bottom = 888.0
 mouse_filter = 2
 
 [node name="BookBackground" type="TextureRect" parent="CanvasLayer/Inventory" unique_id=1553922881]
@@ -95,19 +143,223 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_fwu20")
 
-[node name="ItemBackground" type="TextureRect" parent="CanvasLayer/Inventory" unique_id=929937379]
+[node name="TextZone" type="Panel" parent="CanvasLayer" unique_id=188487473]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -280.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_erh1e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextZone" unique_id=1400828836]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -256.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 28
+justification_flags = 162
+
+[node name="LaptopHandler" type="Control" parent="CanvasLayer" unique_id=292521977 node_paths=PackedStringArray("password_screen", "password_email")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_8dcw0")
+password_screen = NodePath("Laptop_password")
+password_email = NodePath("Laptop_email")
+email_draft = "Hey dad, 
+Sorry for leaving you and mom in the dark, It's just that ever since ive moved into this house ive been getting this uneasy feeling. Something about this place has me drawing a blank, like the place itself is squeezing the thoughts right out of my head. I can't explain it, but something about it just doesn't feel right.
+
+But I think Isabell is having a worse time. I don't know if it's the new environment or the house itself, but she's been spending more and more time writing in her journal. Isolating herself in the basement and…. 
+[The rest of the email is left blank]"
+email_dad = "Michael, I’ve been trying to reach out to you recently, I’m starting to get worried about you. Ever since you moved we’ve talked less and less… I know that life gets in the way but I need you to at least respond to my letters, before I start thinking that house of yours ate you alive!
+
+From,
+Dad"
+metadata/_edit_use_anchors_ = true
+
+[node name="Laptop_password" type="TextureRect" parent="CanvasLayer/LaptopHandler" unique_id=492902345]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_k0e7r")
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/LaptopHandler/Laptop_password" unique_id=1252752177]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 596.0
+offset_right = 1136.0
+offset_bottom = 646.0
+theme_override_colors/font_color = Color(0.4930191, 0.54219246, 0.4357773, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qnvo5")
+
+[node name="Laptop_email" type="TextureRect" parent="CanvasLayer/LaptopHandler" unique_id=528020920]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_wodox")
+metadata/_edit_use_anchors_ = true
+
+[node name="EmailShow" type="RichTextLabel" parent="CanvasLayer/LaptopHandler/Laptop_email" unique_id=1131365989]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 296.0
+offset_right = 1400.0
+offset_bottom = 792.0
+theme_override_colors/default_color = Color(0.23137255, 0.30980393, 0.3529412, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "Michael, I’ve been trying to reach out to you recently, I’m starting to get worried about you. Ever since you moved we’ve talked less and less… I know that life gets in the way but I need you to at least respond to my letters, before I start thinking that house of yours ate you alive!
+
+From,
+Dad"
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/LaptopHandler/Laptop_email" unique_id=1134890104]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.071354166
-anchor_top = 0.072222225
-anchor_right = 0.465625
-anchor_bottom = 0.5888889
+anchor_left = 0.17040358
+anchor_top = 0.25185186
+anchor_right = 0.3856502
+anchor_bottom = 0.7259259
+offset_right = 6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.30980393, 0.3529412, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ocemr")
+item_count = 2
+item_0/text = ". To Dad [DRAFT]"
+item_1/text = ". From Dad: Michael, I’ve b..."
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=480101924]
+anchors_preset = -1
+anchor_top = 0.9435185
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UVLightButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=841756909]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Use Glow Stick"
+
+[node name="SpiritBoxButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=392402297]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Use Spirit Box"
+
+[node name="LockHandler" type="Control" parent="CanvasLayer" unique_id=118901295]
+visible = false
+layout_mode = 3
+anchor_left = 0.48878923
+anchor_top = 0.4814815
+anchor_right = 0.51121074
+anchor_bottom = 0.5185185
+offset_right = 6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_wodox")
+lock_code = 4863
+metadata/_edit_use_anchors_ = true
+
+[node name="LockImage" type="TextureRect" parent="CanvasLayer/LockHandler" unique_id=2038260148]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -6.6
+anchor_top = -7.4
+anchor_right = -0.2
+anchor_bottom = -1.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_k0e7r")
+metadata/_edit_use_anchors_ = true
+
+[node name="Digit_1" type="Button" parent="CanvasLayer/LockHandler" unique_id=691631772]
+layout_mode = 0
+offset_left = -157.0
+offset_top = 24.0
+offset_right = -122.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 48
+text = "0
+"
+
+[node name="Digit_2" type="Button" parent="CanvasLayer/LockHandler" unique_id=1703019093]
+layout_mode = 0
+offset_left = -85.0
+offset_top = 31.0
+offset_right = -50.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 48
+text = "0
+"
+
+[node name="Digit_3" type="Button" parent="CanvasLayer/LockHandler" unique_id=145322079]
+layout_mode = 0
+offset_left = -18.0
+offset_top = 33.0
+offset_right = 17.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 48
+text = "0
+"
+
+[node name="Digit_4" type="Button" parent="CanvasLayer/LockHandler" unique_id=1048257862]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 40.0
+offset_right = 88.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 48
+text = "0
+"
+
+[node name="DarknessPannel" type="Panel" parent="CanvasLayer" unique_id=415404124]
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("4_xcj4c")
 metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=417235316]
 
 [connection signal="focus_entered" from="CanvasLayer/Inventory/ItemList" to="CanvasLayer/Inventory" method="_on_item_list_focus_entered"]
 [connection signal="item_clicked" from="CanvasLayer/Inventory/ItemList" to="CanvasLayer/Inventory" method="_on_item_list_item_clicked"]
 [connection signal="item_clicked" from="CanvasLayer/Inventory/EvidenceList" to="CanvasLayer/Inventory" method="_on_item_list_item_clicked_evidence"]
+[connection signal="text_submitted" from="CanvasLayer/LaptopHandler/Laptop_password/LineEdit" to="CanvasLayer/LaptopHandler" method="_on_line_edit_text_submitted"]
+[connection signal="item_clicked" from="CanvasLayer/LaptopHandler/Laptop_email/ItemList" to="CanvasLayer/LaptopHandler" method="_on_item_list_item_clicked"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/UVLightButton" to="." method="_on_uv_light_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/SpiritBoxButton" to="." method="_on_spirit_box_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LockHandler/Digit_1" to="CanvasLayer/LockHandler" method="_on_digit_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/LockHandler/Digit_2" to="CanvasLayer/LockHandler" method="_on_digit_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/LockHandler/Digit_3" to="CanvasLayer/LockHandler" method="_on_digit_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/LockHandler/Digit_4" to="CanvasLayer/LockHandler" method="_on_digit_4_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://djdptidg1a5n"]
+
+[ext_resource type="Script" uid="uid://bkjvmq5ted40v" path="res://scripts/rooms/room_basement.gd" id="1_13s8i"]
+[ext_resource type="Texture2D" uid="uid://u3dragaihiau" path="res://sprites/basement.png" id="2_4ip8g"]
+[ext_resource type="Resource" uid="uid://b10wxftvi3iy0" path="res://items/item_diary.tres" id="2_v7tu4"]
+[ext_resource type="Resource" uid="uid://dh4utrsn7ni3d" path="res://items/item_spirit_box.tres" id="3_rnfw7"]
+[ext_resource type="Script" uid="uid://eq7uess6ckp1" path="res://scripts/buttons/item_collect_button.gd" id="4_uj61k"]
+[ext_resource type="Texture2D" uid="uid://dk7k7v3ghf8xh" path="res://items/generator.png" id="5_asv1r"]
+[ext_resource type="Script" uid="uid://cdfa5suvwvf4a" path="res://scripts/buttons/room_change_outline_button.gd" id="6_2hrq6"]
+[ext_resource type="Script" uid="uid://b1a63146poql4" path="res://scripts/buttons/action_combination_door.gd" id="7_13s8i"]
+[ext_resource type="Texture2D" uid="uid://50gs7sdwigmd" path="res://items/basement_door.png" id="7_ktidv"]
+[ext_resource type="AudioStream" uid="uid://dfdo82urfi8kb" path="res://audio/noise/metal_close.ogg" id="7_lsoer"]
+[ext_resource type="Script" uid="uid://j5b601ne3mhw" path="res://scripts/buttons/action_lights_on.gd" id="7_rnfw7"]
+[ext_resource type="Texture2D" uid="uid://dudncgqep3uj4" path="res://items/stairs_click.png" id="8_ktidv"]
+
+[sub_resource type="Resource" id="Resource_22bmv"]
+script = ExtResource("7_rnfw7")
+dialouge = Array[String](["*You turned on the generator*"])
+generator_sound = ExtResource("7_lsoer")
+metadata/_custom_type_script = "uid://j5b601ne3mhw"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hrq6"]
+size = Vector2(59.50412, 125)
+
+[sub_resource type="Resource" id="Resource_v7tu4"]
+script = ExtResource("7_13s8i")
+metadata/_custom_type_script = "uid://b1a63146poql4"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw3vw"]
+size = Vector2(34.338837, 172.1875)
+
+[node name="BasementRoom" type="Node" unique_id=608998390]
+script = ExtResource("1_13s8i")
+wifes_diary = ExtResource("2_v7tu4")
+spirit_box = ExtResource("3_rnfw7")
+metadata/_custom_type_script = "uid://dchdao4cau6w2"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=530742341]
+z_index = -4
+texture = ExtResource("2_4ip8g")
+centered = false
+
+[node name="GeneratorThing" type="Area2D" parent="." unique_id=1762302403 node_paths=PackedStringArray("item_sprite")]
+position = Vector2(1532, 754)
+scale = Vector2(4.84, 1.6)
+script = ExtResource("4_uj61k")
+item_sprite = NodePath("Generator")
+hover_sprite = ExtResource("5_asv1r")
+collection_picked_id = 5
+action = SubResource("Resource_22bmv")
+
+[node name="Generator" type="Sprite2D" parent="GeneratorThing" unique_id=1873916848]
+position = Vector2(-131.40495, -136.25)
+scale = Vector2(0.20661156, 0.625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GeneratorThing" unique_id=1581567472]
+position = Vector2(2.47937, 1.25)
+shape = SubResource("RectangleShape2D_2hrq6")
+
+[node name="BasementDoor" type="Area2D" parent="." unique_id=1129479062 node_paths=PackedStringArray("sprite")]
+position = Vector2(1532, 754)
+scale = Vector2(4.84, 1.6)
+script = ExtResource("6_2hrq6")
+sprite = NodePath("Door")
+hover_sprite = ExtResource("7_ktidv")
+Scene = "res://rooms/basement/captive_room.tscn"
+action = SubResource("Resource_v7tu4")
+
+[node name="Door" type="Sprite2D" parent="BasementDoor" unique_id=1917451111]
+position = Vector2(-132.0248, -140.625)
+scale = Vector2(0.20661156, 0.625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasementDoor" unique_id=1979736891]
+position = Vector2(-152.70656, -163.28125)
+shape = SubResource("RectangleShape2D_xw3vw")
+
+[node name="StairPath" type="Area2D" parent="." unique_id=863872855 node_paths=PackedStringArray("sprite")]
+position = Vector2(1532, 754)
+scale = Vector2(4.84, 1.6)
+script = ExtResource("6_2hrq6")
+sprite = NodePath("Stair")
+hover_sprite = ExtResource("8_ktidv")
+Scene = "res://rooms/floor1/dining_room.tscn"
+
+[node name="Stair" type="Sprite2D" parent="StairPath" unique_id=1482776912]
+position = Vector2(-132.0248, -140.625)
+scale = Vector2(0.20661156, 0.625)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StairPath" unique_id=737523482]
+position = Vector2(-258.05783, -395.625)
+polygon = PackedVector2Array(-14.049583, -71.875, -15.289253, 0, -52.892555, 350.625, 36.983467, 342.5, 16.322311, 3.75, 14.669426, -75)

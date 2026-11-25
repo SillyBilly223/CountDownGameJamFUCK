@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialougeScript" format=3 uid="uid://clrc0lpkdshse"]
+
+[ext_resource type="Script" uid="uid://cghofm5g12lil" path="res://scripts/dialogue/dialouge_script.gd" id="1_bhsg5"]
+
+[resource]
+script = ExtResource("1_bhsg5")
+dialouge = Array[String](["I think see someone staring at me at the top of the stairs.", "But its too dark to tell.", "I should get the power back on before i head up there."])
+metadata/_custom_type_script = "uid://cghofm5g12lil"

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bxuah1e5d2s8x"]
+
+[ext_resource type="Script" uid="uid://dchdao4cau6w2" path="res://scripts/rooms/room_manager.gd" id="1_dpk3r"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_6j4gn"]
+[ext_resource type="Texture2D" uid="uid://co5bmdcbgn70g" path="res://sprites/upstairs_hallway.png" id="3_4x2kb"]
+[ext_resource type="Resource" uid="uid://csrg3v1btdgww" path="res://dialouge/dialouge_basic_locked_door.tres" id="3_kruiu"]
+[ext_resource type="Script" uid="uid://piivsbkp6eio" path="res://scripts/buttons/action_locked_door.gd" id="4_uom4t"]
+
+[sub_resource type="Resource" id="Resource_xw3vw"]
+script = ExtResource("4_uom4t")
+locked_door_dialogue = ExtResource("3_kruiu")
+metadata/_custom_type_script = "uid://piivsbkp6eio"
+
+[node name="Hallway" type="Node" unique_id=1499119467 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_dpk3r")
+sprite = NodePath("Background")
+metadata/_custom_type_script = "uid://dchdao4cau6w2"
+
+[node name="Arrow_Bedroom" parent="." unique_id=521820739 instance=ExtResource("2_6j4gn")]
+position = Vector2(272.00006, 960)
+rotation = -2.1572585
+scale = Vector2(0.40011346, 1)
+Scene = "res://rooms/floor2/bedroom.tscn"
+
+[node name="Arrow_Study" parent="." unique_id=626279613 instance=ExtResource("2_6j4gn")]
+position = Vector2(904.00006, 688.00006)
+rotation = -1.5822597
+scale = Vector2(0.4001135, 1)
+Scene = "res://rooms/floor2/study.tscn"
+
+[node name="Arrow_Bathroom" parent="." unique_id=1875773562 instance=ExtResource("2_6j4gn")]
+position = Vector2(1200, 776)
+rotation = -0.9394324
+scale = Vector2(0.4001135, 1)
+Scene = "res://rooms/floor2/bathroom.tscn"
+action = SubResource("Resource_xw3vw")
+
+[node name="Arrow_Enterance" parent="." unique_id=1460748400 instance=ExtResource("2_6j4gn")]
+position = Vector2(888, 1024)
+rotation = 1.584759
+scale = Vector2(0.4001135, 1)
+Scene = "res://rooms/floor1/main_room.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1015744946]
+z_index = -4
+texture = ExtResource("3_4x2kb")
+centered = false

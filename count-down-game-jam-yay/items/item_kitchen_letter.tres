@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cac0n3e7jhdqd"]
+
+[ext_resource type="Texture2D" uid="uid://cx2sqf6kb5l7h" path="res://items/letters.png" id="1_kctsp"]
+[ext_resource type="Script" uid="uid://crc2bpl7c8h06" path="res://scripts/item.gd" id="1_m6c0m"]
+
+[resource]
+script = ExtResource("1_m6c0m")
+icon = ExtResource("1_kctsp")
+item_name = "Husbands Letter"
+itemID = "kitchen_letter"
+item_description = "Hi darling, 
+I hope you slept well, I left this note to let you know I’m off to get some parts to fix that rusty old generator in the basement. Not that I’m complaining, I sure can use some time outside this house. I know we just moved in, but this place just makes me feel so… disoriented.  I swear, it feels like these walls are shifting. Just the other night I went to use the bathroom near the kitchen and when I opened the door to walk back to our bedroom, I was already there."
+is_evidence = true
+metadata/_custom_type_script = "uid://crc2bpl7c8h06"

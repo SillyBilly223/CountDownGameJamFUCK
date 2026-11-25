@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bk3kwpak8g70q"]
+
+[ext_resource type="Script" uid="uid://crc2bpl7c8h06" path="res://scripts/item.gd" id="1_svurl"]
+
+[resource]
+script = ExtResource("1_svurl")
+item_name = "Bathroom Keys"
+itemID = "bathroom_keys"
+item_description = "fuuuuuck"
+metadata/_custom_type_script = "uid://crc2bpl7c8h06"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b10wxftvi3iy0"]
+
+[ext_resource type="Script" uid="uid://crc2bpl7c8h06" path="res://scripts/item.gd" id="1_8fjqb"]
+
+[resource]
+script = ExtResource("1_8fjqb")
+item_name = "Wife's Diary"
+itemID = "wifes_diary"
+item_description = "The diary is full of barely comprehensible ramblings and occult drawings. But you are able to make out something about the library, basement, and an apocalypse."
+is_evidence = true
+metadata/_custom_type_script = "uid://crc2bpl7c8h06"

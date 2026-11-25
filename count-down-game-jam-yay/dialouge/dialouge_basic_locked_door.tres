@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialougeScript" format=3 uid="uid://csrg3v1btdgww"]
+
+[ext_resource type="Script" uid="uid://cghofm5g12lil" path="res://scripts/dialogue/dialouge_script.gd" id="1_1e7v5"]
+
+[resource]
+script = ExtResource("1_1e7v5")
+dialouge = Array[String](["The door is locked."])
+metadata/_custom_type_script = "uid://cghofm5g12lil"

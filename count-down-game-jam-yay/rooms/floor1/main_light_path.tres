@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionLockedDoor" format=3 uid="uid://jgjh6d347iuw"]
+
+[ext_resource type="Resource" uid="uid://clrc0lpkdshse" path="res://dialouge/dialouge_require_light.tres" id="1_4kyy1"]
+[ext_resource type="Script" uid="uid://piivsbkp6eio" path="res://scripts/buttons/action_locked_door.gd" id="1_ybq5e"]
+
+[resource]
+script = ExtResource("1_ybq5e")
+locked_door_dialogue = ExtResource("1_4kyy1")
+locked_door_value = 5
+metadata/_custom_type_script = "uid://piivsbkp6eio"

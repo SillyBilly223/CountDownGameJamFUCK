@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cn50ddjrdiwuq"]
+
+[ext_resource type="Script" uid="uid://crc2bpl7c8h06" path="res://scripts/item.gd" id="1_y6brv"]
+
+[resource]
+script = ExtResource("1_y6brv")
+item_name = "Love Letter"
+itemID = "love_letter"
+item_description = "A yellowing envelope with crudely drawn hearts plastered all over it, must be years old. It’s addressed to a girl named \"Isabell\". Is this the wife?"
+is_evidence = true
+metadata/_custom_type_script = "uid://crc2bpl7c8h06"

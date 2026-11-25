@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dh4utrsn7ni3d"]
+
+[ext_resource type="Script" uid="uid://crc2bpl7c8h06" path="res://scripts/item.gd" id="1_ojlub"]
+
+[resource]
+script = ExtResource("1_ojlub")
+item_name = "Spirit Box"
+itemID = "spirit_box"
+item_description = "yuguashg"
+metadata/_custom_type_script = "uid://crc2bpl7c8h06"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dv48k8oxentx"]
+
+[ext_resource type="Script" uid="uid://oiukx6dnpc5b" path="res://scripts/rooms/room_start.gd" id="1_h52wy"]
+[ext_resource type="Resource" uid="uid://cwg74n4k2qfpe" path="res://dialouge/dialouge_start.tres" id="2_y1onl"]
+
+[node name="StartingRoom" type="Node" unique_id=1499961218]
+script = ExtResource("1_h52wy")
+dialouge = ExtResource("2_y1onl")

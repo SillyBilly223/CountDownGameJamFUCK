@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialougeMoveScene" format=3 uid="uid://cwg74n4k2qfpe"]
+
+[ext_resource type="Script" uid="uid://dccnhajva4b8b" path="res://scripts/dialogue/dialouge_move_scene.gd" id="1_p6pde"]
+
+[resource]
+script = ExtResource("1_p6pde")
+Scene = "res://rooms/floor1/main_room.tscn"
+dialouge = Array[String](["Rain pounds against your windshield as you pull up to the decaying gates of the manor.", "The towering estate looms over the surrounding woods, its broken windows staring back like hollow eyes.", "According to local legend, the lady of the house went mad after years of isolation and brutally murdered her husband before vanishing without a trace. Since then, no one has dared to go near it.", "As a paranormal investigator,  you’ve come to separate myth from truth. Your goal is to communicate with whatever still lingers within these walls and uncover what really happened on the night the manor fell silent.", "The front door groans open as you step inside. The air is damp, the silence oppressive, and the darkness almost absolute.", "\"I can barely see anything...  I need to find the generator first.\""])
+metadata/_custom_type_script = "uid://dccnhajva4b8b"

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ce62nasynwf4a"]
+
+[ext_resource type="Script" uid="uid://c5mwci1cvqbtm" path="res://scripts/rooms/room_Sigil.gd" id="1_qdcq2"]
+[ext_resource type="Texture2D" uid="uid://dfxv8ycpataly" path="res://sprites/bedroom.png" id="2_jioaj"]
+[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_lj0m2"]
+[ext_resource type="Script" uid="uid://eq7uess6ckp1" path="res://scripts/buttons/item_collect_button.gd" id="4_bgcl5"]
+[ext_resource type="Texture2D" uid="uid://bif6pwmeqbssp" path="res://items/bedroom_drawr.png" id="5_b5fh6"]
+[ext_resource type="Script" uid="uid://crc2bpl7c8h06" path="res://scripts/item.gd" id="6_bgc2q"]
+[ext_resource type="Resource" uid="uid://cn50ddjrdiwuq" path="res://items/item_love_letter.tres" id="7_oywdj"]
+[ext_resource type="Resource" uid="uid://b358pdwceik0u" path="res://items/item_uv_light.tres" id="8_qdcq2"]
+[ext_resource type="Script" uid="uid://bh0qwmnmvcpn5" path="res://scripts/buttons/action_interact_dialouge.gd" id="9_oywdj"]
+[ext_resource type="Texture2D" uid="uid://bnqy4yokmjevt" path="res://items/sigil_3.png" id="10_cxnqv"]
+
+[sub_resource type="Resource" id="Resource_qsnpr"]
+script = ExtResource("9_oywdj")
+dialouge = Array[String](["*You find a love letter and glow stick.*"])
+metadata/_custom_type_script = "uid://bh0qwmnmvcpn5"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oywdj"]
+size = Vector2(42.975174, 147.5)
+
+[node name="Bedroom" type="Node" unique_id=1841026369 node_paths=PackedStringArray("sigil_sprite", "sprite")]
+script = ExtResource("1_qdcq2")
+sigil_sprite = NodePath("Sigil")
+sigil_digit = "eight"
+sigil_key = 12
+sprite = NodePath("Background")
+metadata/_custom_type_script = "uid://dchdao4cau6w2"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=814735006]
+z_index = -4
+texture = ExtResource("2_jioaj")
+centered = false
+
+[node name="LeftRoomArrow3" parent="." unique_id=626279613 instance=ExtResource("3_lj0m2")]
+position = Vector2(175.99998, 904)
+rotation = 0.45228064
+Scene = "res://rooms/floor2/hallway.tscn"
+
+[node name="GeneratorThing" type="Area2D" parent="." unique_id=602137293 node_paths=PackedStringArray("item_sprite")]
+position = Vector2(1532, 754)
+scale = Vector2(4.84, 1.6)
+script = ExtResource("4_bgcl5")
+item_sprite = NodePath("Generator")
+hover_sprite = ExtResource("5_b5fh6")
+collections = Array[ExtResource("6_bgc2q")]([ExtResource("7_oywdj"), ExtResource("8_qdcq2")])
+collection_picked_id = 2
+dissapear_value = true
+action = SubResource("Resource_qsnpr")
+
+[node name="Generator" type="Sprite2D" parent="GeneratorThing" unique_id=1217498105]
+position = Vector2(-131.40495, -136.25)
+scale = Vector2(0.20661156, 0.625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GeneratorThing" unique_id=1545658435]
+position = Vector2(30.371918, 72.5)
+shape = SubResource("RectangleShape2D_oywdj")
+
+[node name="Sigil" type="Sprite2D" parent="." unique_id=582451296]
+visible = false
+texture = ExtResource("10_cxnqv")
+centered = false

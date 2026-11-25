@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b0kmyb8avi2fa"]
+
+[ext_resource type="Script" uid="uid://nlupyvd8tur5" path="res://scripts/rooms/room_lose.gd" id="1_hq6du"]
+[ext_resource type="Script" uid="uid://dccnhajva4b8b" path="res://scripts/dialogue/dialouge_move_scene.gd" id="2_2vsmn"]
+
+[sub_resource type="Resource" id="Resource_xw3vw"]
+script = ExtResource("2_2vsmn")
+Scene = "res://rooms/floor1/main_room.tscn"
+dialouge = Array[String](["The walls close in. The spirits scream. You're out of time.", "Maybe in another universe you make it out alive."])
+metadata/_custom_type_script = "uid://dccnhajva4b8b"
+
+[node name="LoseRoom" type="Node" unique_id=1978111109]
+script = ExtResource("1_hq6du")
+dialouge = SubResource("Resource_xw3vw")
+metadata/_custom_type_script = "uid://dchdao4cau6w2"

@@ -1,35 +1,107 @@
 [gd_scene format=3 uid="uid://ke4mngh60k05"]
 
-[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_u3e8n"]
-[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_ys4iq"]
-[ext_resource type="PackedScene" uid="uid://bymfbvudukrkv" path="res://icons/left_arrow.tscn" id="3_2x027"]
+[ext_resource type="Script" uid="uid://vxg3acq1qwes" path="res://scripts/rooms/room_infi_hallway.gd" id="1_gh208"]
+[ext_resource type="Texture2D" uid="uid://bgn84hqm7ia2s" path="res://sprites/inf_hallway.png" id="1_u1aws"]
+[ext_resource type="Texture2D" uid="uid://d4np1tdw6pdtx" path="res://sprites/evilroom.png" id="2_jkwgt"]
+[ext_resource type="Script" uid="uid://cdx3wp3dj1du5" path="res://scripts/buttons/infin_escape_button.gd" id="4_ol7jp"]
+[ext_resource type="Texture2D" uid="uid://m54an378061v" path="res://icons/arrows/arow_right_active1.png" id="5_a3uju"]
+[ext_resource type="Texture2D" uid="uid://c3aoxuqkeows4" path="res://icons/arrows/arow_right_active2.png" id="6_mpg0e"]
+[ext_resource type="Texture2D" uid="uid://bfo6uskngdgsl" path="res://icons/arrows/arow_right_active3.png" id="7_wub2v"]
+[ext_resource type="Script" uid="uid://46wu18xkdg58" path="res://scripts/buttons/infin_hallway_button.gd" id="8_sbd28"]
 
-[node name="MainRoom" type="Node2D" unique_id=1544991076]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wnvy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a3uju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mpg0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wub2v")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wub2v")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
-[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_u3e8n")]
-position = Vector2(620, 111)
-lock_to_top_center = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t02jy"]
+size = Vector2(168, 80)
 
-[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_ys4iq")]
-position = Vector2(1039, 520)
-Scene = "res://rooms/floor1/infinite_hallway.tscn"
+[node name="InfHallway" type="Node2D" unique_id=1544991076 node_paths=PackedStringArray("evilbackground", "forward_arrow", "sprite")]
+script = ExtResource("1_gh208")
+evilbackground = NodePath("SuperEvilness")
+evilsprite = ExtResource("2_jkwgt")
+normalsprite = ExtResource("1_u1aws")
+forward_arrow = NodePath("Arrow_contine")
+evilgirldialouge = Array[String](["\"I GAVE YOU A CHOICE!\"", "\"I GAVE YOU TIME!\"", "\"YOU IGNORED ME!\"", "\"YOU KEPT DIGGING!\"", "\"LEAVE.. NOW!\""])
+sprite = NodePath("Background")
 
-[node name="Label" type="Label" parent="." unique_id=1049603567]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 309.99997
-offset_top = 269.99997
-offset_right = 417.99997
-offset_bottom = 292.99997
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5, 5)
-text = "infinite
-hallway"
+[node name="SuperEvilness" type="Sprite2D" parent="." unique_id=1394458827]
+visible = false
+position = Vector2(0, -8)
+scale = Vector2(1.631769, 1.6263078)
+texture = ExtResource("2_jkwgt")
+centered = false
 
-[node name="LeftRoomArrow3" parent="." unique_id=776123765 instance=ExtResource("3_2x027")]
-position = Vector2(111, 529)
-Scene = "res://rooms/floor1/main_room.tscn"
+[node name="Background" type="Sprite2D" parent="." unique_id=756451027]
+z_index = -5
+texture = ExtResource("1_u1aws")
+centered = false
+
+[node name="Arrow Right2" type="Area2D" parent="." unique_id=562327383 node_paths=PackedStringArray("sprite")]
+position = Vector2(864, 952)
+rotation = -4.7291837
+scale = Vector2(0.78501344, 1.3147129)
+script = ExtResource("4_ol7jp")
+sprite = NodePath("AnimatedSprite2D")
+scene_path = "res://rooms/floor1/main_room.tscn"
+scene_loop = "res://rooms/floor1/infinite_hallway.tscn"
+default_color = Color(1, 1, 1, 0.5058824)
+hovered_color = Color(1, 1, 1, 0.7372549)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arrow Right2" unique_id=281990539]
+modulate = Color(1, 1, 1, 0.49803922)
+self_modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(-47, -2)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_wnvy3")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Right2" unique_id=1827623497]
+position = Vector2(-4, -8)
+shape = SubResource("RectangleShape2D_t02jy")
+
+[node name="Arrow_contine" type="Area2D" parent="." unique_id=1395627237 node_paths=PackedStringArray("sprite")]
+position = Vector2(919.99994, 487.99997)
+rotation = -7.3681912
+scale = Vector2(0.6847409, 0.8965681)
+script = ExtResource("8_sbd28")
+sprite = NodePath("AnimatedSprite2D")
+scene_path = "res://rooms/floor1/infinite_hallway.tscn"
+scene_end = "res://rooms/floor1/infinite_hallway.tscn"
+default_color = Color(1, 1, 1, 0.5058824)
+hovered_color = Color(1, 1, 1, 0.7372549)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arrow_contine" unique_id=1821279936]
+modulate = Color(1, 1, 1, 0.49803922)
+self_modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(-47, -2)
+rotation = -0.057968203
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_wnvy3")
+animation = &"idle"
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow_contine" unique_id=682528549]
+position = Vector2(-4, -8)
+shape = SubResource("RectangleShape2D_t02jy")

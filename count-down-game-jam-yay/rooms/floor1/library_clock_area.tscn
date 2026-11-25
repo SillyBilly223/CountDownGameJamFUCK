@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bpj8ao0on56pp"]
+
+[ext_resource type="Script" uid="uid://cjanq8kftprgm" path="res://scripts/rooms/room_clock.gd" id="1_68uy7"]
+[ext_resource type="Resource" uid="uid://bk3kwpak8g70q" path="res://items/item_bathroom_keys.tres" id="2_5o5ep"]
+[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_drlro"]
+[ext_resource type="Texture2D" uid="uid://ddvxfi7l4g7ph" path="res://sprites/end_of_library.png" id="3_68uy7"]
+
+[node name="LibraryClockArea" type="Node" unique_id=1617800783 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_68uy7")
+enter_dialouge = Array[String](["This seems to be the only illuminated room in the library.", "*You find a pair of keys on the floor*"])
+bathroom_key = ExtResource("2_5o5ep")
+sprite = NodePath("Background")
+metadata/_custom_type_script = "uid://dchdao4cau6w2"
+
+[node name="LeftRoomArrow5" parent="." unique_id=626279613 instance=ExtResource("2_drlro")]
+position = Vector2(888, 984)
+rotation = -4.726593
+scale = Vector2(0.40011346, 1)
+Scene = "res://rooms/floor1/main_room.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=477306677]
+z_index = -4
+position = Vector2(-32, 0)
+texture = ExtResource("3_68uy7")
+centered = false

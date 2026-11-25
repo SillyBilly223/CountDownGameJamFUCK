@@ -1,30 +1,143 @@
 [gd_scene format=3 uid="uid://c2avvkdl4qjh0"]
 
-[ext_resource type="PackedScene" uid="uid://dfe4wu4a313xn" path="res://icons/main_timer.tscn" id="1_gkieb"]
-[ext_resource type="PackedScene" uid="uid://ba37cdfuc5bvv" path="res://icons/right_arrow.tscn" id="2_4sw2e"]
+[ext_resource type="Script" uid="uid://ccyff5jl1ltl1" path="res://scripts/rooms/room_library.gd" id="1_gkieb"]
+[ext_resource type="Texture2D" uid="uid://g75kfiphx1cp" path="res://sprites/Library_Darkness.png" id="2_yg10i"]
+[ext_resource type="Script" uid="uid://cf6qsyfypxfvr" path="res://scripts/buttons/library_path_button.gd" id="3_hfwii"]
+[ext_resource type="Texture2D" uid="uid://m54an378061v" path="res://icons/arrows/arow_right_active1.png" id="4_ojrak"]
+[ext_resource type="Texture2D" uid="uid://c3aoxuqkeows4" path="res://icons/arrows/arow_right_active2.png" id="5_fqket"]
+[ext_resource type="Texture2D" uid="uid://bfo6uskngdgsl" path="res://icons/arrows/arow_right_active3.png" id="6_by87e"]
 
-[node name="MainRoom" type="Node2D" unique_id=1544991076]
+[sub_resource type="SpriteFrames" id="SpriteFrames_61wso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ojrak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fqket")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_by87e")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_by87e")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
-[node name="MainTimer" parent="." unique_id=81778749 instance=ExtResource("1_gkieb")]
-position = Vector2(620, 111)
-lock_to_top_center = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw3vw"]
+size = Vector2(168, 80)
 
-[node name="LeftRoomArrow" parent="." unique_id=626279613 instance=ExtResource("2_4sw2e")]
-position = Vector2(1039, 520)
-Scene = "res://rooms/floor1/main_room.tscn"
+[node name="Library" type="Node2D" unique_id=1544991076]
+script = ExtResource("1_gkieb")
+paths = Array[int]([1, 0, 2, 1, 2])
+spirit_responce = Array[int]([1, 0, 0, 1, 3])
+led_spot = Array[int]([3, 3, 1, 3, 2])
+max_paths = 5
 
-[node name="Label" type="Label" parent="." unique_id=1049603567]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 309.99997
-offset_top = 269.99997
-offset_right = 417.99997
-offset_bottom = 292.99997
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5, 5)
-text = "LIBRARY
-MAZE"
+[node name="Background" type="Sprite2D" parent="." unique_id=712522670]
+z_index = -4
+texture = ExtResource("2_yg10i")
+centered = false
+
+[node name="Arrow Middle" type="Area2D" parent="." unique_id=7011367 node_paths=PackedStringArray("sprite")]
+position = Vector2(896, 543.99994)
+rotation = -1.5704163
+scale = Vector2(0.75973326, 0.709218)
+script = ExtResource("3_hfwii")
+Scene_path = "res://rooms/floor1/library.tscn"
+Scene_clock = "res://rooms/floor1/library_clock_area.tscn"
+path_type = 1
+default_color = Color(1, 1, 1, 0.5058824)
+hovered_color = Color(1, 1, 1, 0.7372549)
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arrow Middle" unique_id=288591921]
+modulate = Color(1, 1, 1, 0.49803922)
+self_modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(-47, -2)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_61wso")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Middle" unique_id=1778545930]
+position = Vector2(-4, -8)
+shape = SubResource("RectangleShape2D_xw3vw")
+
+[node name="Arrow Left" type="Area2D" parent="." unique_id=595166660 node_paths=PackedStringArray("sprite")]
+position = Vector2(328, 688)
+rotation = -2.1406393
+scale = Vector2(0.75973326, 0.709218)
+script = ExtResource("3_hfwii")
+Scene_path = "res://rooms/floor1/library.tscn"
+Scene_clock = "res://rooms/floor1/library_clock_area.tscn"
+default_color = Color(1, 1, 1, 0.5058824)
+hovered_color = Color(1, 1, 1, 0.7372549)
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arrow Left" unique_id=379016301]
+modulate = Color(1, 1, 1, 0.49803922)
+self_modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(-47, -2)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_61wso")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Left" unique_id=1613160906]
+position = Vector2(-4, -8)
+shape = SubResource("RectangleShape2D_xw3vw")
+
+[node name="Arrow Right" type="Area2D" parent="." unique_id=166562437 node_paths=PackedStringArray("sprite")]
+position = Vector2(1480, 688.00006)
+rotation = -0.9872715
+scale = Vector2(0.7597331, 0.709218)
+script = ExtResource("3_hfwii")
+Scene_path = "res://rooms/floor1/library.tscn"
+Scene_clock = "res://rooms/floor1/library_clock_area.tscn"
+path_type = 2
+default_color = Color(1, 1, 1, 0.5058824)
+hovered_color = Color(1, 1, 1, 0.7372549)
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arrow Right" unique_id=170258212]
+modulate = Color(1, 1, 1, 0.49803922)
+self_modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(-47, -2)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_61wso")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Right" unique_id=1011014644]
+position = Vector2(-4, -8)
+shape = SubResource("RectangleShape2D_xw3vw")
+
+[node name="Arrow Right2" type="Area2D" parent="." unique_id=161907558 node_paths=PackedStringArray("sprite")]
+position = Vector2(888.00006, 960)
+rotation = -4.7291837
+scale = Vector2(0.44986972, 0.8965681)
+script = ExtResource("3_hfwii")
+Scene_path = "res://rooms/floor1/main_room.tscn"
+Scene_clock = "res://rooms/floor1/library_clock_area.tscn"
+path_type = 3
+default_color = Color(1, 1, 1, 0.5058824)
+hovered_color = Color(1, 1, 1, 0.7372549)
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arrow Right2" unique_id=1638262460]
+modulate = Color(1, 1, 1, 0.49803922)
+self_modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(-47, -2)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_61wso")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow Right2" unique_id=1591866051]
+position = Vector2(-4, -8)
+shape = SubResource("RectangleShape2D_xw3vw")
